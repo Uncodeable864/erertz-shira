@@ -1,0 +1,153 @@
+:root {
+	--bg: #faf9f7;
+	--text: #1a1a1a;
+	--muted: #666;
+	--divider: #ddd;
+	--brand: #0047ab;
+	--highlight: rgba(0, 71, 171, 0.12);
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: 'Libre Baskerville', serif;
+}
+
+header {
+	text-align: center;
+	padding: 2.5rem 1rem 1.5rem;
+	border-bottom: 3px solid var(--brand);
+}
+
+header h1 {
+	margin: 0 0 0.5rem;
+	font-size: 2rem;
+	font-weight: 700;
+}
+
+header p {
+	margin: 0;
+	color: var(--muted);
+	font-size: 0.95rem;
+}
+
+.controls {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin: 1.5rem 0 0.5rem;
+	flex-wrap: wrap;
+}
+
+.controls button,
+.controls select {
+	font-family: inherit;
+	font-size: 0.9rem;
+	padding: 0.4rem 0.8rem;
+	border: 1px solid var(--brand);
+	background: white;
+	color: var(--brand);
+	cursor: pointer;
+}
+
+.controls button.active {
+	background: var(--brand);
+	color: white;
+}
+
+main {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1rem 3rem;
+}
+
+.poem {
+	display: block;
+}
+
+.line-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 3rem;
+	row-gap: 0.35rem;
+	align-items: start;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.line-row {
+	display: contents;
+}
+
+.line.hebrew {
+	font-family: 'Frank Ruhl Libre', serif;
+	direction: rtl;
+	text-align: right;
+	font-size: 1.15rem;
+	line-height: 1.45;
+}
+
+.line.english {
+	font-size: 1.05rem;
+	line-height: 1.45;
+}
+
+.hebrew {
+	font-family: 'Frank Ruhl Libre', serif;
+	direction: rtl;
+	text-align: right;
+	font-size: 1.15rem;
+	line-height: 1.45;
+}
+
+.english {
+	font-size: 1.05rem;
+	line-height: 1.45;
+}
+
+.stanza {
+	margin-bottom: 2rem;
+}
+
+.line {
+	display: block;
+	padding: 0.15rem 0.25rem;
+	border-radius: 4px;
+}
+
+.line:hover,
+.line.highlight {
+	background: var(--highlight);
+}
+
+footer {
+	border-top: 1px solid var(--divider);
+	text-align: center;
+	padding: 1.5rem 1rem 2rem;
+	font-size: 0.85rem;
+	color: var(--muted);
+}
+
+.hide-hebrew .hebrew {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.hide-english .english {
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+	.line-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.hebrew,
+	.english {
+		margin-bottom: 2.5rem;
+	}
+}
