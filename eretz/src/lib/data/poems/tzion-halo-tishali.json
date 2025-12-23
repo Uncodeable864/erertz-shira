@@ -1,0 +1,68 @@
+{
+    "id": "tzion-halo-tishali",
+    "metadata": {
+        "title": "Zion, Will You Not Ask",
+        "hebrewTitle": "ציון הלא תשאלי",
+        "author": {
+            "en": "Yehuda Halevi",
+            "he": "יהודה בן שמואל הלוי"
+        },
+        "description": "Hebrew & English",
+        "copyright": "Public Domain",
+        "infoUrl": "https://en.wikipedia.org/wiki/Zion_hali_tishali"
+    },
+    "translations": [
+        {
+            "id": "default",
+            "name": "Halevi (clarity translation)",
+            "copyright": "© 2024 Liam S",
+            "infoUrl": "#"
+        }
+    ],
+    "content": [
+        [
+            {
+                "id": "1",
+                "hebrew": "צִיּוֹן, הֲלֹא תִשְׁאֲלִי לִשְׁלוֹם אֲסִירַיִךְ,",
+                "trans": {
+                    "default": "<strong>Zion, will you not ask after the welfare of your captives,</strong>"
+                }
+            },
+            {
+                "id": "2",
+                "hebrew": "דּוֹרְשֵׁי שְׁלוֹמֵךְ וְהֵם יֶתֶר עֲדָרָיִךְ?",
+                "trans": {
+                    "default": "Those who seek your peace—who are the remnant of your flocks?"
+                }
+            },
+            {
+                "id": "3",
+                "hebrew": "מִיָּם וּמִזְרָח וּמִצָּפוֹן וְתֵימָן שְׁלוֹם",
+                "trans": {
+                    "default": "From west and east, from north and south: peace"
+                }
+            },
+            {
+                "id": "4",
+                "hebrew": "רָחוֹק וְקָרוֹב שְׂאִי מִכֹּל עֲבָרָיִךְ.",
+                "trans": {
+                    "default": "To far and near—take it from all your borders."
+                }
+            },
+            {
+                "id": "5",
+                "hebrew": "וּשְׁלוֹם אֲסִיר תַּאֲוָה נוֹתֵן דְּמָעָיו כְּטַל,",
+                "trans": {
+                    "default": "And peace to the captive of longing, who pours out tears like Hermon's dew,"
+                }
+            },
+            {
+                "id": "6",
+                "hebrew": "חֶרְמוֹן וְנִכְסַף לְרִדְתָּם עַל הֲרָרָיִךְ.",
+                "trans": {
+                    "default": "And yearns for them to fall upon your mountains."
+                }
+            }
+        ]
+    ]
+}

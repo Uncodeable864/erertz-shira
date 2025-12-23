@@ -11,7 +11,7 @@ body {
 	margin: 0;
 	background: var(--bg);
 	color: var(--text);
-	font-family: 'Libre Baskerville', serif;
+	font-family: 'Crimson Pro', serif;
 }
 
 header {
@@ -74,6 +74,7 @@ main {
 	align-items: start;
 	margin-left: auto;
 	margin-right: auto;
+	max-width: 800px;
 }
 
 .line-row {
@@ -130,15 +131,27 @@ footer {
 }
 
 .hide-hebrew .hebrew {
-	display: block;
-	text-align: center;
-	margin: 0 auto;
+	display: none;
 }
 
 .hide-english .english {
-	display: block;
+	display: none;
+}
+
+.hide-hebrew .line-grid {
+	grid-template-columns: 1fr;
+}
+
+.hide-english .line-grid {
+	grid-template-columns: 1fr;
+}
+
+.hide-hebrew .english {
 	text-align: center;
-	margin: 0 auto;
+}
+
+.hide-english .hebrew {
+	text-align: center;
 }
 
 @media (max-width: 900px) {
