@@ -102,6 +102,12 @@ main {
 	line-height: 1.45;
 }
 
+.l-hebrew {
+	font-family: 'Frank Ruhl Libre', serif;
+	direction: rtl;
+	text-align: right;
+}
+
 .english {
 	font-size: 1.05rem;
 	line-height: 1.45;

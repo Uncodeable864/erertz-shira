@@ -8,14 +8,22 @@
 </svelte:head>
 
 <main>
-	<h1>Eretz Shira</h1>
-	<p>A collection of Hebrew poetry.</p>
+	<div class="he-en-group">
+		<h1>Eretz Shira</h1>
+		<h1 class="l-hebrew">ארץ שירה</h1>
+	</div>
 
 	<div class="poem-list">
 		{#each poems as poem}
 			<a href="/poem/{poem.id}" class="poem-card">
-				<h2>{poem.title}</h2>
-				<p>{poem.author.en} · {poem.hebrewTitle}</p>
+				<div class="he-en-group">
+					<h2 dir="ltr"><i>{poem.title}</i></h2>
+					<h2 class="l-hebrew">{poem.hebrewTitle}</h2>
+				</div>
+				<div class="he-en-group">
+					<p>{poem.author.en}</p>
+					<p class="l-hebrew">{poem.author.he}</p>
+				</div>
 			</a>
 		{/each}
 	</div>
@@ -26,18 +34,11 @@
 		max-width: 800px;
 		margin: 0 auto;
 		padding: 2rem;
-		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	}
 
 	h1 {
 		text-align: center;
 		margin-bottom: 0.5rem;
-	}
-
-	p {
-		text-align: center;
-		color: #666;
-		margin-bottom: 2rem;
 	}
 
 	.poem-list {
@@ -48,7 +49,8 @@
 	.poem-card {
 		display: block;
 		padding: 1.5rem;
-		border: 1px solid #ddd;
+		margin: 0 -1.5rem;
+		border: 1px solid var(--divider);
 		border-radius: 8px;
 		text-decoration: none;
 		color: inherit;
@@ -60,7 +62,7 @@
 	.poem-card:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-		border-color: #bbb;
+		border-color: var(--divider);
 	}
 
 	.poem-card h2 {
@@ -71,6 +73,12 @@
 	.poem-card p {
 		margin: 0;
 		text-align: left;
-		color: #555;
+		color: var(--muted);
+	}
+
+	.he-en-group {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
 </style>

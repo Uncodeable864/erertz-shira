@@ -39,7 +39,12 @@
 </svelte:head>
 
 <header>
-	<h1>{poem.metadata.title}</h1>
+	<h1>
+		<div class="en-he-group">
+			{poem.metadata.title}
+			<span class="l-hebrew" dir="rtl">{poem.metadata.hebrewTitle}</span>
+		</div>
+	</h1>
 	<p>
 		{poem.metadata.author.en} ({poem.metadata.author.he}) ·
 		<a href={poem.metadata.infoUrl} target="_blank" rel="noreferrer">About Poem</a>
@@ -123,5 +128,18 @@
 		grid-column: 1 / -1;
 		height: 1.5rem; /* Space between stanzas */
 	}
-	/* Reset grid gap for rows if needed, but existing CSS probably handles .line-grid */
+	.he-en-group {
+		display: flex;
+		flex-wrap: wrap;
+		/* gap is handled by auto margins pushing them apart, ensures at least some space if they are close */
+		column-gap: 1rem;
+	}
+	.he-en-group > :first-child {
+		text-align: left;
+		margin-right: auto; /* Pushes everything else to the right */
+	}
+	.he-en-group > .l-hebrew {
+		text-align: right;
+		margin-left: auto; /* Pushes itself to the right */
+	}
 </style>

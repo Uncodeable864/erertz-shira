@@ -7,60 +7,558 @@
             "en": "Yehuda Halevi",
             "he": "יהודה בן שמואל הלוי"
         },
-        "description": "Hebrew & English",
-        "copyright": "Public Domain",
         "infoUrl": "https://en.wikipedia.org/wiki/Zion_hali_tishali"
     },
     "translations": [
         {
             "id": "default",
-            "name": "Halevi (clarity translation)",
-            "copyright": "© 2024 Liam S",
-            "infoUrl": "#"
+            "name": "Nina Salaman (1924)",
+            "copyright": "Jewish Publication Society of America, 1924",
+            "infoUrl": "https://www.commentary.org/articles/jehuda-halevi/cedars-of-lebanon-the-journey-to-zion/"
         }
     ],
     "content": [
         [
             {
-                "id": "1",
+                "id": "line1",
                 "hebrew": "צִיּוֹן, הֲלֹא תִשְׁאֲלִי לִשְׁלוֹם אֲסִירַיִךְ,",
                 "trans": {
-                    "default": "<strong>Zion, will you not ask after the welfare of your captives,</strong>"
+                    "default": "Zion! wilt thou not ask if peace be with thy captives"
                 }
             },
             {
-                "id": "2",
+                "id": "line2",
                 "hebrew": "דּוֹרְשֵׁי שְׁלוֹמֵךְ וְהֵם יֶתֶר עֲדָרָיִךְ?",
                 "trans": {
-                    "default": "Those who seek your peace—who are the remnant of your flocks?"
+                    "default": "That seek thy peace—that are the remnant of thy flock?"
                 }
-            },
+            }
+        ],
+        [
             {
-                "id": "3",
+                "id": "line3",
                 "hebrew": "מִיָּם וּמִזְרָח וּמִצָּפוֹן וְתֵימָן שְׁלוֹם",
                 "trans": {
-                    "default": "From west and east, from north and south: peace"
+                    "default": "From west and east, from north and south—the greeting"
                 }
             },
             {
-                "id": "4",
-                "hebrew": "רָחוֹק וְקָרוֹב שְׂאִי מִכֹּל עֲבָרָיִךְ.",
+                "id": "line4",
+                "hebrew": "רָחוֹק וְקָרוֹב שְׂאִי מִכֹּל עֲבָרָיִךְ,",
                 "trans": {
-                    "default": "To far and near—take it from all your borders."
+                    "default": "\"Peace\" from far and near, take thou from every side;"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line5",
+                "hebrew": "וּשְׁלוֹם אֲסִיר תַּאֲוָה, נוֹתֵן דְּמָעָיו כְּטַל–",
+                "trans": {
+                    "default": "And greeting from the captive of desire, giving his tears like dew"
                 }
             },
             {
-                "id": "5",
-                "hebrew": "וּשְׁלוֹם אֲסִיר תַּאֲוָה נוֹתֵן דְּמָעָיו כְּטַל,",
+                "id": "line6",
+                "hebrew": "חֶרְמוֹן וְנִכְסַף לְרִדְתָּם עַל הֲרָרָיִךְ!",
                 "trans": {
-                    "default": "And peace to the captive of longing, who pours out tears like Hermon's dew,"
+                    "default": "Of Hermon, and longing to let them fall upon thine hills."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line7",
+                "hebrew": "לִבְכּוֹת עֱנוּתֵךְ אֲנִי תַנִּים, וְעֵת אֶחֱלֹם",
+                "trans": {
+                    "default": "To wail for thine affliction I am like the jackals; but when I dream"
                 }
             },
             {
-                "id": "6",
-                "hebrew": "חֶרְמוֹן וְנִכְסַף לְרִדְתָּם עַל הֲרָרָיִךְ.",
+                "id": "line8",
+                "hebrew": "שִׁיבַת שְׁבוּתֵך – אֲנִי כִנּוֹר לְשִׁירָיִךְ.",
                 "trans": {
-                    "default": "And yearns for them to fall upon your mountains."
+                    "default": "Of the return of thy captivity, I am a harp for thy songs."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line9",
+                "hebrew": "לִבִּי לְבֵית-אֵל וְלִפְנִיאֵל מְאֹד יֶהֱמֶה",
+                "trans": {
+                    "default": "My heart to Bethel and Peniel yearneth sore,"
+                }
+            },
+            {
+                "id": "line10",
+                "hebrew": "וּלְמַחֲנַיִם וְכֹל פִּגְעֵי טְהוֹרָיִךְ,",
+                "trans": {
+                    "default": "To Mahanaim and to all the places where thy pure ones have met."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line11",
+                "hebrew": "שָׁם הַשְּׁכִינָה שְׁכֵנָה לָךְ, וְהַיּוֹצְרֵךְ",
+                "trans": {
+                    "default": "There the Presence abideth in thee; yea, there thy Maker"
+                }
+            },
+            {
+                "id": "line12",
+                "hebrew": "פָּתַח לְמוּל שַׁעֲרֵי שַׁחַק שְׁעָרָיִךְ,",
+                "trans": {
+                    "default": "Opened thy gates to face the gates of heaven."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line13",
+                "hebrew": "וּכְבוֹד אֲדֹנָי לְבַד הָיָה מְאוֹרֵךְ, וְאֵין",
+                "trans": {
+                    "default": "And the Lord's glory alone was thy light;"
+                }
+            },
+            {
+                "id": "line14",
+                "hebrew": "שֶׁמֶשׁ וְסַהַר וְכוֹכָבִים מְאִירָיִךְ.",
+                "trans": {
+                    "default": "No sun nor moon nor stars were luminants for thee."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line15",
+                "hebrew": "אֶבְחַר לְנַפְשִׁי לְהִשְׁתַּפֵּךְ בְּמָקוֹם אֲשֶר",
+                "trans": {
+                    "default": "I would choose for my soul to pour itself out within that place"
+                }
+            },
+            {
+                "id": "line16",
+                "hebrew": "רוּחַ אֱלֹהִים שְׁפוּכָה עַל בְּחִירָיִךְ.",
+                "trans": {
+                    "default": "Where the spirit of God was outpoured upon thy chosen."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line17",
+                "hebrew": "אַתְּ בֵּית מְלוּכָה וְאַתְּ כִּסֵּא אֲדֹנָי, וְאֵיךְ",
+                "trans": {
+                    "default": "Thou art the house of royalty; thou art the throne of the Lord, and how"
+                }
+            },
+            {
+                "id": "line18",
+                "hebrew": "יָשְׁבוּ עֲבָדִים עֲלֵי כִסְאוֹת גְּבִירָיִךְ?",
+                "trans": {
+                    "default": "Do slaves sit now upon thy princes' thrones?"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line19",
+                "hebrew": "מִי יִתְּנֵנִי מְשׁוֹטֵט בַּמְּקוֹמוֹת אֲשֶׁר",
+                "trans": {
+                    "default": "Would I might be wandering in the places where"
+                }
+            },
+            {
+                "id": "line20",
+                "hebrew": "נִגְלוּ אֱלֹהִים לְחוֹזַיִךְ וְצִירָיִךְ!",
+                "trans": {
+                    "default": "God was revealed unto thy seers and messengers."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line21",
+                "hebrew": "מִי יַעֲשֶׂה לִי כְנָפַיִם וְאַרְחִיק נְדוֹד,",
+                "trans": {
+                    "default": "O who will make me wings, that I may fly afar,"
+                }
+            },
+            {
+                "id": "line22",
+                "hebrew": "אָנִיד לְבִתְרֵי לְבָבִי בֵּין בְּתָרָיִךְ!",
+                "trans": {
+                    "default": "And lay the ruins of my cleft heart among thy broken cliffs!"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line23",
+                "hebrew": "אֶפֹּל לְאַפַּי עֲלֵי אַרְצֵךְ וְאֶרְצֶה אֲבָ-",
+                "trans": {
+                    "default": "I would fall, with my face upon thine earth and take delight"
+                }
+            },
+            {
+                "id": "line24",
+                "hebrew": "נַיִךְ מְאֹד וַאֲחֹנֵן אֶת-עֲפָרָיִךְ,",
+                "trans": {
+                    "default": "In thy stones and be tender to thy dust."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line25",
+                "hebrew": "אַף כִּי בְעָמְדִי עֲלֵי קִבְרוֹת אֲבֹתַי וְאֶשְׁ-",
+                "trans": {
+                    "default": "Yea, more, when standing by my fathers' tombs"
+                }
+            },
+            {
+                "id": "line26",
+                "hebrew": "תּוֹמֵם בְּחֶבְרוֹן עֲלֵי מִבְחַר קְבָרָיִךְ!",
+                "trans": {
+                    "default": "I would marvel, in Hebron, over the chosen of thy graves."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line27",
+                "hebrew": "אֶעְבֹר בְּיַעְרֵךְ וְכַרְמִלֵּךְ וְאֶעְמֹד בְּגִלְ-",
+                "trans": {
+                    "default": "I would pass into thy forest and thy fruitful field, and stand"
+                }
+            },
+            {
+                "id": "line28",
+                "hebrew": "עָדֵךְ וְאֶשְׁתּוֹמֲמָה אֶל הַר עֲבָרָיִךְ,",
+                "trans": {
+                    "default": "Within thy Gilead, and wonder at thy mount beyond—"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line29",
+                "hebrew": "הַר הָעֲבָרִים וְהֹר הָהָר, אֲשֶׁר שָׁם שְׁנֵי",
+                "trans": {
+                    "default": "Mount Abarim, and Mount Hor, where are the twain"
+                }
+            },
+            {
+                "id": "line30",
+                "hebrew": "אוֹרִים גְּדוֹלִים מְאִירַיִךְ וּמוֹרָיִךְ.",
+                "trans": {
+                    "default": "Great lights—thy Luminaries, thy Teachers."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line31",
+                "hebrew": "חַיֵּי נְשָׁמוֹת – אֲוִיר אַרְצֵךְ, וּמִמָּר דְרוֹר",
+                "trans": {
+                    "default": "The life of souls is the air of thy land, and of pure myrrh"
+                }
+            },
+            {
+                "id": "line32",
+                "hebrew": "אַבְקַת עֲפָרֵךְ, וְנֹפֶת צוּף – נְהָרָיִךְ!",
+                "trans": {
+                    "default": "The grains of thy dust, and honey from the comb thy rivers."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line33",
+                "hebrew": "יִנְעַם לְנַפְשִׁי הֲלֹךְ עָרֹם וְיָחֵף עֲלֵי",
+                "trans": {
+                    "default": "Sweet would it be unto my soul to walk naked and barefoot"
+                }
+            },
+            {
+                "id": "line34",
+                "hebrew": "חָרְבוֹת שְׁמָמָה אֲשֶׁר הָיוּ דְבִירָיִךְ,",
+                "trans": {
+                    "default": "Upon the desolate ruins where thy holiest dwellings were;"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line35",
+                "hebrew": "בִּמְקוֹם אֲרוֹנֵךְ אֲשֶׁר נִגְנַז, וּבִמְקוֹם כְּרוּ-",
+                "trans": {
+                    "default": "In the place of thine Ark where it is hidden and in the place"
+                }
+            },
+            {
+                "id": "line36",
+                "hebrew": "בַיִךְ אֲשֶׁר שָׁכְנוּ חַדְרֵי חֲדָרָיִךְ!",
+                "trans": {
+                    "default": "Of thy cherubim which abode in thine innermost recesses."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line37",
+                "hebrew": "אָגֹז וְאַשְׁלִיךְ פְּאֵר נִזְרִי וְאֶקֹּב זְמָן,",
+                "trans": {
+                    "default": "I will cut off and cast away the splendor of my crown of locks, and curse the fate"
+                }
+            },
+            {
+                "id": "line38",
+                "hebrew": "חִלֵּל בְּאֶרֶץ טְמֵאָה אֶת-נְזִירָיִךְ–",
+                "trans": {
+                    "default": "That desecrated in unclean land the heads that bore thy crown."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line39",
+                "hebrew": "אֵיךְ יֶעֱרַב לִי אֲכֹל וּשְׁתוֹת בְּעֵת אֶחֱזֶה,",
+                "trans": {
+                    "default": "How shall it be sweet to me to eat and drink while I behold"
+                }
+            },
+            {
+                "id": "line40",
+                "hebrew": "כִּי יִּסְחֲבוּ הַכְּלָבִים אֶת-כְּפִירָיִךְ?",
+                "trans": {
+                    "default": "Dogs tearing at thy lions' whelps?"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line41",
+                "hebrew": "אוֹ אֵיךְ מְאוֹר יוֹם יְהִי מָתוֹק לְעֵינַי בְּעוֹד",
+                "trans": {
+                    "default": "Or how can light of day be joyous to mine eyes while yet"
+                }
+            },
+            {
+                "id": "line42",
+                "hebrew": "אֶרְאֶה בְּפִי עֹרְבִים פִּגְרֵי נְשָׁרָיִךְ?",
+                "trans": {
+                    "default": "I see in ravens' beaks torn bodies of thine eagles?"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line43",
+                "hebrew": "כּוֹס הַיְגוֹנִים, לְאַט! הַרְפִּי מְעַט, כִּי כְבָר",
+                "trans": {
+                    "default": "O cup of sorrow! gently! hold a while! already"
+                }
+            },
+            {
+                "id": "line44",
+                "hebrew": "מָלְאוּ כְסָלַי וְנַפְשִׁי מַמְּרוֹרָיִךְ.",
+                "trans": {
+                    "default": "My loins are filled, yea, and my soul, with thy bitterness."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line45",
+                "hebrew": "עֵת אֶזְכְּרָה אָהֳלָה – אֶשְׁתֶּה חֲמָתֵךְ, וְאֶזְ-",
+                "trans": {
+                    "default": "When I remember Oholah I drink thy fury,"
+                }
+            },
+            {
+                "id": "line46",
+                "hebrew": "כֹּר אָהֳלִיבָה – וְאֶמְצֶה אֶת-שְׁמָרָיִךְ!",
+                "trans": {
+                    "default": "And I recall Oholibah, and drain thy dregs."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line47",
+                "hebrew": "צִיּוֹן כְּלִילַת יֳפִי, אַהְבָה וְחֵן תִּקְשְׁרִי",
+                "trans": {
+                    "default": "Zion! perfect in beauty! love and grace thou didst bind on to thee"
+                }
+            },
+            {
+                "id": "line48",
+                "hebrew": "מֵאָז, וּבָךְ נִקְשְׁרוּ נַפְשׁוֹת חֲבֵרָיִךְ–",
+                "trans": {
+                    "default": "Of olden time; and still the souls of thy companions are bound up with thee."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line49",
+                "hebrew": "הֵם הַשְּׂמֵחִים לְשַׁלְוָתֵךְ וְהַכּוֹאֲבִים",
+                "trans": {
+                    "default": "It is they that rejoice at thy well-being, that are in pain"
+                }
+            },
+            {
+                "id": "line50",
+                "hebrew": "עַל שׁוֹמֲמוּתֵךְ וּבוֹכִים עַל שְׁבָרָיִךְ.",
+                "trans": {
+                    "default": "Over thy desolation, and that weep over thy ruin—"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line51",
+                "hebrew": "מִבּוֹר שְׁבִי שׁוֹאֲפִים נֶגְדֵּךְ וּמִשְׁתַּחֲוִים",
+                "trans": {
+                    "default": "They that, from the pit of the captive, pant toward thee, worshiping,"
+                }
+            },
+            {
+                "id": "line52",
+                "hebrew": "אִישׁ מִמְּקוֹמוֹ אֱלֵי נֹכַח שְׁעָרָיִךְ,",
+                "trans": {
+                    "default": "Every one from his own place, toward thy gates;"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line53",
+                "hebrew": "עֶדְרֵי הֲמוֹנֵךְ, אֲשֶׁר גָּלוּ וְהִתְפַּזְּרוּ",
+                "trans": {
+                    "default": "The flocks of thy multitude, which were exiled and scattered"
+                }
+            },
+            {
+                "id": "line54",
+                "hebrew": "מֵהַר לְגִבְעָה וְלֹא שָׁכְחוּ גְדֵרָיִךְ,",
+                "trans": {
+                    "default": "From mount to hill, but have not forgotten thy fold;"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line55",
+                "hebrew": "הַמַּחֲזִיקִים בְּשׁוּלַיִךְ וּמִתְאַמְּצִים",
+                "trans": {
+                    "default": "Which grasp thy skirts and strengthen themselves"
+                }
+            },
+            {
+                "id": "line56",
+                "hebrew": "לַעְלוֹת וְלֶאְחֹז בְּסַנְסִנֵּי תְּמָרָיִךְ.",
+                "trans": {
+                    "default": "To go up and take hold of the boughs of thy palms."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line57",
+                "hebrew": "שִׁנְעָר וּפַתְרוֹס הֲיַעַרְכוּךְ בְּגָדְלָם, וְאִם",
+                "trans": {
+                    "default": "Shinar and Pathros—were they equal unto thee in their greatness?"
+                }
+            },
+            {
+                "id": "line58",
+                "hebrew": "הֶבְלָם יְדַמּוּ לְתֻמַּיִךְ וְאוּרָיִךְ?",
+                "trans": {
+                    "default": "Can they compare their vanity to thy Thummim and thy Urim?"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line59",
+                "hebrew": "אֶל מִי יְדַמּוּ מְשִׁיחַיִךְ וְאֶל מִי נְבִי-",
+                "trans": {
+                    "default": "And with whom could they compare thine anointed Kings? and with whom"
+                }
+            },
+            {
+                "id": "line60",
+                "hebrew": "אַיִךְ וְאֶל מִי לְוִיַּיִךְ וְשָׁרָיִךְ?",
+                "trans": {
+                    "default": "Thy prophets? and with whom thy ministrants and thy singers?"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line61",
+                "hebrew": "יִשְׁנֶה וְיַחְלֹף כְּלִיל כָּל-מַמְלְכוֹת הָאֱלִיל.",
+                "trans": {
+                    "default": "He will change, He will wholly sweep away all the realms of idols;"
+                }
+            },
+            {
+                "id": "line62",
+                "hebrew": "חָסְנֵךְ לְעוֹלָם, לְדוֹר וָדוֹר נְזָרָיִךְ.",
+                "trans": {
+                    "default": "Thy splendor is for ever, from age to age thy crown."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line63",
+                "hebrew": "אִוָּךְ לְמוֹשָׁב אֱלֹהַיִךְ, וְאַשְׁרֵי אֱנוֹשׁ",
+                "trans": {
+                    "default": "Thy God hath desired thee for a dwelling place; and happy is the man"
+                }
+            },
+            {
+                "id": "line64",
+                "hebrew": "יִבְחַר יְקָרֵב וְיִשְׁכֹּן בַּחֲצֵרָיִךְ!",
+                "trans": {
+                    "default": "Whom He chooseth and bringeth near that he may rest within thy courts."
+                }
+            }
+        ],
+        [
+            {
+                "id": "line65",
+                "hebrew": "אַשְׁרֵי מְחַכֶּה וְיַגִּיעַ וְיִרְאֶה עֲלוֹת",
+                "trans": {
+                    "default": "Happy is he that waiteth, that cometh nigh and seeth the rising"
+                }
+            },
+            {
+                "id": "line66",
+                "hebrew": "אוֹרֵךְ וְיִבָּקְעוּ עָלָיו שְׁחָרָיִךְ,",
+                "trans": {
+                    "default": "Of thy light, when on him thy dawn shall break—"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line67",
+                "hebrew": "לִרְאוֹת בְּטוֹבַת בְּחִירַיִךְ וְלַעְלֹז בְּשִׂמְ-",
+                "trans": {
+                    "default": "That he may see the welfare of thy chosen, and rejoice"
+                }
+            },
+            {
+                "id": "line68",
+                "hebrew": "חָתֵךְ בְּשׁוּבֵךְ אֱלֵי קַדְמַת נְעוּרָיִךְ!",
+                "trans": {
+                    "default": "In thy rejoicing, when thou turnest back unto thine olden youth."
                 }
             }
         ]
