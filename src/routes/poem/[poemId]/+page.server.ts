@@ -16,3 +16,12 @@ export const load = async ({ params }) => {
         throw error(404, 'Poem not found');
     }
 };
+
+/** @type {import('./$types').EntryGenerator} */
+export const entries = () => {
+    const modules = import.meta.glob('../../../lib/data/poems/*.json');
+    return Object.keys(modules).map((path) => {
+        const poemId = path.split('/').pop()?.replace('.json', '');
+        return { poemId: poemId! };
+    });
+};
