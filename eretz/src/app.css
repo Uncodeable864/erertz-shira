@@ -1,17 +1,28 @@
 :root {
-	--bg: #faf9f7;
-	--text: #1a1a1a;
-	--muted: #666;
-	--divider: #ddd;
-	--brand: #0047ab;
-	--highlight: rgba(0, 71, 171, 0.12);
+	--bg: #FAF9F6;
+	--bg-dark: #F3F1E8;
+	--text: #2D3748;
+	--muted: #718096;
+	--divider: hsl(214, 32%, 85%);
+	--brand: #2C5282;
+	--highlight: rgba(44, 82, 130, 0.08);
+	--shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--transition: all 0.3s ease-in-out;
 }
 
 body {
 	margin: 0;
-	background: var(--bg);
+	min-height: 100vh;
 	color: var(--text);
 	font-family: 'Crimson Pro', serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: #FAF9F6;
+	background-image:
+		repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(139, 117, 91, 0.02) 4px, rgba(139, 117, 91, 0.02) 4px),
+		repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(139, 117, 91, 0.02) 4px, rgba(139, 117, 91, 0.02) 4px);
 }
 
 header {
