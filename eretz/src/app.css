@@ -134,7 +134,6 @@ main {
 	border-radius: 4px;
 }
 
-.line:hover,
 .line.highlight {
 	background: var(--highlight);
 }
@@ -175,9 +174,10 @@ footer {
 	.line-grid {
 		grid-template-columns: 1fr;
 	}
+}
 
-	.hebrew,
-	.english {
-		margin-bottom: 2.5rem;
-	}
+.he-en-group {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }

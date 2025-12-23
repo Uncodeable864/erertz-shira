@@ -1,0 +1,16 @@
+{
+    "id": "yehuda-halevi",
+    "name": {
+        "en": "Yehuda Halevi",
+        "he": "יהודה בן שמואל הלוי"
+    },
+    "description": "Yehuda Halevi was a Sephardic Jewish poet, physician and philosopher. HaLevi is considered one of the greatest Hebrew-language poets and is celebrated for his secular and religious poems, many of which appear in present-day Jewish liturgy. His philosophical masterpiece, 'The Kuzari', details his defense of Judaism and his deep yearning for the Land of Israel.",
+    "infoUrl": "https://en.wikipedia.org/wiki/Yehuda_Halevi",
+    "poems": [
+        {
+            "id": "tzion-halo-tishali",
+            "title": "Zion, Will You Not Ask",
+            "hebrewTitle": "ציון הלא תשאלי"
+        }
+    ]
+}

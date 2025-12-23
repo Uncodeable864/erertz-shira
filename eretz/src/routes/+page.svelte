@@ -75,10 +75,4 @@
 		text-align: left;
 		color: var(--muted);
 	}
-
-	.he-en-group {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-	}
 </style>

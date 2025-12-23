@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { Fa } from 'svelte-fa';
 	import { onMount } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import { faWikipediaW } from '@fortawesome/free-brands-svg-icons';
 
 	let { data } = $props();
 	const { poem } = data; // Destructure poem from data
@@ -31,15 +33,15 @@
 
 	onMount(() => {
 		mounted = true;
+		if (window.innerWidth < 768) {
+			layoutMode = 'interlinear';
+		}
 		const handleScroll = () => {
 			scrollY = window.scrollY;
 		};
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
-
-	let headerTransform = $derived(`translateY(${scrollY * 0.3}px)`);
-	let headerOpacity = $derived(Math.max(0, 1 - scrollY / 300));
 
 	// Compute the current translation object
 	let currentTranslation = $derived(
@@ -78,103 +80,149 @@
 
 {#if mounted}
 	<div>
-		<header class="parallax-header" style:transform={headerTransform} style:opacity={headerOpacity}>
+		<header>
 			<div class="header-inner">
-				<h1 class="main-title">
-					<span class="en">{poem.metadata.title}</span>
+				<h1 class="main-title he-en-group">
 					<span class="he l-hebrew" dir="rtl">{poem.metadata.hebrewTitle}</span>
+					<span class="en">{poem.metadata.title}</span>
 				</h1>
 				<p class="author-meta">
-					<span class="en">{poem.metadata.author.en}</span>
-					<span class="he l-hebrew" dir="rtl">{poem.metadata.author.he}</span>
-					<span class="info-sep">·</span>
-					<a href={poem.metadata.infoUrl} target="_blank" rel="noreferrer" class="about-link"
-						>About Poem</a
+					<a href="/author/{poem.metadata.author.id}" class="author-link he l-hebrew" dir="rtl"
+						>{poem.metadata.author.he}</a
 					>
+					<span class="en-group">
+						<a href="/author/{poem.metadata.author.id}" class="author-link en"
+							>{poem.metadata.author.en}</a
+						>
+					</span>
 				</p>
-			</div>
-
-			<div class="controls-container">
-				<div class="view-controls">
-					<button
-						class:active={showHebrew}
-						onclick={toggleHebrew}
-						title="Toggle Hebrew"
-						aria-label="Toggle Hebrew"
-						class="lang-toggle"
-					>
-						א
-					</button>
-					<button
-						class:active={showEnglish}
-						onclick={toggleEnglish}
-						title="Toggle English"
-						aria-label="Toggle English"
-						class="lang-toggle"
-					>
-						A
-					</button>
-					<div class="divider"></div>
-					<button
-						onclick={cycleLayoutMode}
-						title="Change Layout ({layoutMode})"
-						aria-label="Change Layout"
-						class="layout-toggle"
-					>
-						{#if layoutMode === 'columns'}
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<rect x="2" y="3" width="9" height="18" rx="2" /><rect
-									x="13"
-									y="3"
-									width="9"
-									height="18"
-									rx="2"
-								/>
-							</svg>
-						{:else}
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="20"
-								height="20"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								stroke-width="2"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-							>
-								<line x1="8" y1="6" x2="21" y2="6" /><line x1="8" y1="12" x2="21" y2="12" /><line
-									x1="8"
-									y1="18"
-									x2="21"
-									y2="18"
-								/><line x1="3" y1="6" x2="3.01" y2="6" /><line
-									x1="3"
-									y1="12"
-									x2="3.01"
-									y2="12"
-								/><line x1="3" y1="18" x2="3.01" y2="18" />
-							</svg>
-						{/if}
-					</button>
-				</div>
 			</div>
 		</header>
 
 		<main>
 			<div class="poem-wrapper">
+				{#if poem.metadata.description || poem.metadata.author.description}
+					<div class="context-info">
+						{#if poem.metadata.description}
+							<div class="poem-desc">
+								<p>
+									{poem.metadata.description}
+									{#if poem.metadata.infoUrl}
+										<span class="info-sep">·</span>
+										<a
+											href={poem.metadata.infoUrl}
+											target="_blank"
+											rel="noreferrer"
+											class="about-link"
+											aria-label="Wikipedia Link"><Fa icon={faWikipediaW} /></a
+										>
+									{/if}
+								</p>
+							</div>
+						{/if}
+						{#if poem.metadata.author.description}
+							<div class="author-desc">
+								<p>
+									{poem.metadata.author.description}
+									{#if poem.metadata.author.infoUrl}
+										<span class="info-sep">·</span>
+										<a
+											href={poem.metadata.author.infoUrl}
+											target="_blank"
+											rel="noreferrer"
+											class="about-link"
+											aria-label="Wikipedia Link"><Fa icon={faWikipediaW} /></a
+										>
+									{/if}
+								</p>
+							</div>
+						{/if}
+					</div>
+				{/if}
+
 				<div class="poem-meta-bar" class:stuck={scrollY > 20}>
 					<div class="meta-left">
+						<div class="view-controls">
+							<button
+								class:active={showHebrew}
+								onclick={toggleHebrew}
+								title="Toggle Hebrew"
+								aria-label="Toggle Hebrew"
+								class="lang-toggle"
+							>
+								א
+							</button>
+							<button
+								class:active={showEnglish}
+								onclick={toggleEnglish}
+								title="Toggle English"
+								aria-label="Toggle English"
+								class="lang-toggle"
+							>
+								A
+							</button>
+							<div class="divider"></div>
+							<button
+								onclick={cycleLayoutMode}
+								title="Change Layout ({layoutMode})"
+								aria-label="Change Layout"
+								class="layout-toggle"
+							>
+								{#if layoutMode === 'columns'}
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<rect x="2" y="3" width="9" height="18" rx="2" /><rect
+											x="13"
+											y="3"
+											width="9"
+											height="18"
+											rx="2"
+										/>
+									</svg>
+								{:else}
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="2"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+									>
+										<line x1="8" y1="6" x2="21" y2="6" /><line
+											x1="8"
+											y1="12"
+											x2="21"
+											y2="12"
+										/><line x1="8" y1="18" x2="21" y2="18" /><line
+											x1="3"
+											y1="6"
+											x2="3.01"
+											y2="6"
+										/><line x1="3" y1="12" x2="3.01" y2="12" /><line
+											x1="3"
+											y1="18"
+											x2="3.01"
+											y2="18"
+										/>
+									</svg>
+								{/if}
+							</button>
+						</div>
+
+						<div class="meta-sep"></div>
+
 						<div class="translation-control">
 							<label for="translation">Translation:</label>
 							<div class="select-wrapper">
@@ -189,7 +237,7 @@
 					<div class="meta-right">
 						<small class="copyright-info">
 							{currentTranslation.copyright}
-							(<a href={currentTranslation.infoUrl} target="_blank" rel="noreferrer">Info</a>)
+							(<a href={currentTranslation.infoUrl} target="_blank" rel="noreferrer">View</a>)
 						</small>
 					</div>
 				</div>
@@ -209,6 +257,9 @@
 													line.trans['default']}
 											</span>
 										</div>
+										{#if layoutMode === 'interlinear'}
+											<div class="intl-seperator"></div>
+										{/if}
 									{/each}
 								</div>
 								<div class="stanza-sep"><span class="sep-ornament">❖</span></div>
@@ -232,11 +283,12 @@
 	}
 
 	.main-title {
-		margin: 0 0 1rem;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-		align-items: center;
+		max-width: 1000px;
+		margin: 0 auto 1.5rem;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: baseline;
 	}
 
 	.main-title .en {
@@ -247,6 +299,8 @@
 			1px 1px 0px rgba(255, 255, 255, 0.8),
 			2px 2px 4px rgba(0, 0, 0, 0.05);
 		letter-spacing: -0.02em;
+		justify-self: start;
+		text-align: left;
 	}
 
 	.main-title .he {
@@ -254,22 +308,34 @@
 		color: var(--brand);
 		opacity: 0.9;
 		margin-top: -0.5rem;
+		justify-self: end;
+		text-align: right;
 	}
 
 	.author-meta {
-		margin: 0;
-		color: var(--muted);
+		margin: 0 auto 3rem;
+
 		font-size: 1.1rem;
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		max-width: 1000px;
 		align-items: center;
-		justify-content: center;
-		gap: 0.75rem;
-		font-style: italic;
 	}
 
 	.author-meta .he {
 		font-style: normal;
 		font-size: 1.25rem;
+		justify-self: end;
+		text-align: right;
+	}
+
+	.author-meta .en-group {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		justify-self: start;
+		text-align: left;
 	}
 
 	.info-sep {
@@ -291,39 +357,29 @@
 	}
 
 	/* Controls Container */
-	.controls-container {
-		display: flex;
-		justify-content: center;
-		margin-top: 2rem;
-	}
-
 	.view-controls {
 		display: flex;
 		align-items: center;
-		gap: 0.25rem;
-		background: rgba(255, 255, 255, 0.6);
-		padding: 0.25rem;
+		padding: 0.15rem;
+		background: rgba(255, 255, 255, 0.4);
+		border-radius: 8px;
 		border: 1px solid var(--divider);
-		border-radius: 12px;
-		box-shadow: var(--shadow-sm);
-		backdrop-filter: blur(8px);
-		transition: var(--transition);
 	}
 
 	.view-controls:hover {
-		box-shadow: var(--shadow-md);
+		background: rgba(255, 255, 255, 0.8);
 		border-color: var(--brand);
 	}
 
 	.view-controls button {
-		width: 40px;
-		height: 40px;
+		width: 32px;
+		height: 32px;
 		border: none;
 		background: transparent;
 		color: var(--muted);
-		border-radius: 8px;
+		border-radius: 6px;
 		cursor: pointer;
-		font-size: 1.1rem;
+		font-size: 0.95rem;
 		font-weight: 600;
 		transition: var(--transition);
 		display: flex;
@@ -341,19 +397,6 @@
 		background: var(--brand);
 		color: white;
 		box-shadow: var(--shadow-sm);
-		animation: pulse-active 2s infinite ease-in-out;
-	}
-
-	@keyframes pulse-active {
-		0% {
-			box-shadow: 0 0 0 0 rgba(44, 82, 130, 0.4);
-		}
-		70% {
-			box-shadow: 0 0 0 10px rgba(44, 82, 130, 0);
-		}
-		100% {
-			box-shadow: 0 0 0 0 rgba(44, 82, 130, 0);
-		}
 	}
 
 	.divider {
@@ -369,8 +412,6 @@
 		margin: 0 auto 5rem;
 		padding: 2.5rem;
 		background: rgba(255, 255, 255, 0.4);
-		border: 1px solid var(--divider);
-		border-radius: 20px;
 		box-shadow: var(--shadow-lg);
 		position: relative;
 	}
@@ -382,8 +423,6 @@
 		left: 10px;
 		right: 10px;
 		bottom: 10px;
-		border: 1px solid rgba(44, 82, 130, 0.1);
-		border-radius: 15px;
 		pointer-events: none;
 	}
 
@@ -412,6 +451,14 @@
 	.meta-right {
 		display: flex;
 		align-items: center;
+		gap: 1.25rem;
+	}
+
+	.meta-sep {
+		width: 1px;
+		height: 24px;
+		background: var(--divider);
+		margin: 0 0.25rem;
 	}
 
 	.translation-control {
@@ -456,6 +503,47 @@
 		font-weight: 600;
 	}
 
+	.author-link {
+		text-decoration: none;
+		color: inherit;
+		transition: opacity 0.2s;
+	}
+
+	.author-link:hover {
+		opacity: 0.7;
+	}
+
+	/* Context Info */
+	.context-info {
+		max-width: 800px;
+		margin: 0 0 3rem 0;
+		text-align: left;
+		color: var(--text);
+		line-height: 1.6;
+	}
+
+	.context-info .about-link {
+		font-size: 0.75rem;
+		vertical-align: middle;
+	}
+
+	.poem-desc {
+		font-size: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.author-desc {
+		font-size: 1rem;
+	}
+
+	.context-info p {
+		margin: 0;
+	}
+
+	.context-info .info-sep {
+		margin: 0 0.25rem;
+	}
+
 	/* Poem Section */
 	.poem {
 		position: relative;
@@ -470,7 +558,7 @@
 		justify-content: center;
 		column-gap: 3rem;
 		row-gap: 0.5rem;
-		max-width: 800px;
+		max-width: 1000px;
 		padding: 0.1rem 0.6rem;
 		transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 	}
@@ -508,7 +596,6 @@
 		font-size: 1.2rem;
 		line-height: 1.5;
 		justify-self: start;
-		color: #4a5568;
 	}
 
 	/* Stanza Separation */
@@ -533,10 +620,14 @@
 		text-align: center;
 	}
 
+	:global(.mode-interlinear) .intl-seperator {
+		height: 0.5rem;
+	}
+
 	/* Layout Modes */
 	:global(.mode-interlinear) .line-grid {
 		grid-template-columns: 1fr;
-		row-gap: 2rem;
+		row-gap: 0.2rem;
 	}
 
 	:global(.mode-interlinear) .line-row {
@@ -585,9 +676,43 @@
 			border-right: none;
 		}
 
+		/* Mobile Controls */
+		.poem-meta-bar {
+			flex-direction: column;
+			align-items: stretch;
+			gap: 1rem;
+			padding: 1rem;
+			margin: 0 -1.5rem 2rem;
+			top: 0;
+		}
+
+		.meta-left {
+			width: 100%;
+			justify-content: space-between;
+		}
+
+		.meta-right {
+			display: none;
+		}
+
+		.translation-control label {
+			display: none;
+		}
+
+		.select-wrapper {
+			flex-grow: 1;
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		.select-wrapper select {
+			max-width: 100%;
+			width: auto;
+		}
+
 		.line-grid {
 			grid-template-columns: 1fr;
-			row-gap: 2rem;
+			row-gap: 0.5rem;
 		}
 
 		.line-row {
@@ -600,6 +725,35 @@
 			width: 100%;
 			text-align: center !important;
 			justify-self: center !important;
+		}
+
+		.main-title {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.author-meta {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.main-title .he,
+		.main-title .en {
+			justify-self: auto;
+			text-align: center;
+		}
+
+		.author-meta .he {
+			justify-self: auto;
+			text-align: center;
+		}
+
+		.author-meta .en-group {
+			justify-content: center;
 		}
 
 		.main-title .en {

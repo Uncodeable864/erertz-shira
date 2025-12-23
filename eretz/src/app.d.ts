@@ -10,4 +10,9 @@ declare global {
 	}
 }
 
-export {};
+// app.d.ts
+declare module '@fortawesome/free-brands-svg-icons/index.es' {
+	export * from '@fortawesome/free-brands-svg-icons';
+}
+
+export { };
