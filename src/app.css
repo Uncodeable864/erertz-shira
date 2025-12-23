@@ -4,6 +4,7 @@
 	--text: #2D3748;
 	--muted: #718096;
 	--divider: hsl(214, 32%, 85%);
+	--divider-2: hsl(214, 32%, 60%);
 	--brand: #2C5282;
 	--highlight: rgba(44, 82, 130, 0.08);
 	--shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);

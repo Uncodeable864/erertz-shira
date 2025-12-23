@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { Fa } from 'svelte-fa';
-	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
-	import { faWikipediaW } from '@fortawesome/free-brands-svg-icons';
+	import { Fa } from "svelte-fa";
+	import { onMount } from "svelte";
+	import { fade } from "svelte/transition";
+	import { faWikipediaW } from "@fortawesome/free-brands-svg-icons";
 
 	let { data } = $props();
 	const { poem } = data; // Destructure poem from data
@@ -21,32 +21,33 @@
 		infoUrl: string;
 	}
 
-	type LayoutMode = 'columns' | 'interlinear';
+	type LayoutMode = "columns" | "interlinear";
 
 	let scrollY = $state(0);
 	let mounted = $state(false);
 	let showHebrew = $state(true);
 	let showEnglish = $state(true);
-	let layoutMode: LayoutMode = $state('columns');
+	let layoutMode: LayoutMode = $state("columns");
 
-	let currentTranslationId = $state('default'); // Default to first translation
+	let currentTranslationId = $state("default"); // Default to first translation
 
 	onMount(() => {
 		mounted = true;
 		if (window.innerWidth < 768) {
-			layoutMode = 'interlinear';
+			layoutMode = "interlinear";
 		}
 		const handleScroll = () => {
 			scrollY = window.scrollY;
 		};
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
 	});
 
 	// Compute the current translation object
 	let currentTranslation = $derived(
-		poem.translations.find((t: Translation) => t.id === currentTranslationId) ||
-			poem.translations[0]
+		poem.translations.find(
+			(t: Translation) => t.id === currentTranslationId,
+		) || poem.translations[0],
 	);
 
 	function toggleHebrew() {
@@ -60,15 +61,15 @@
 	}
 
 	function cycleLayoutMode() {
-		layoutMode = layoutMode === 'columns' ? 'interlinear' : 'columns';
+		layoutMode = layoutMode === "columns" ? "interlinear" : "columns";
 	}
 
 	function getPoemClass() {
-		const classes = ['poem'];
-		if (!showHebrew) classes.push('hide-hebrew');
-		if (!showEnglish) classes.push('hide-english');
-		if (layoutMode === 'interlinear') classes.push('mode-interlinear');
-		return classes.join(' ');
+		const classes = ["poem"];
+		if (!showHebrew) classes.push("hide-hebrew");
+		if (!showEnglish) classes.push("hide-english");
+		if (layoutMode === "interlinear") classes.push("mode-interlinear");
+		return classes.join(" ");
 	}
 </script>
 
@@ -83,16 +84,21 @@
 		<header>
 			<div class="header-inner">
 				<h1 class="main-title he-en-group">
-					<span class="he l-hebrew" dir="rtl">{poem.metadata.hebrewTitle}</span>
+					<span class="he l-hebrew" dir="rtl"
+						>{poem.metadata.hebrewTitle}</span
+					>
 					<span class="en">{poem.metadata.title}</span>
 				</h1>
 				<p class="author-meta">
-					<a href="/author/{poem.metadata.author.id}" class="author-link he l-hebrew" dir="rtl"
-						>{poem.metadata.author.he}</a
+					<a
+						href="/author/{poem.metadata.author.id}"
+						class="author-link he l-hebrew"
+						dir="rtl">{poem.metadata.author.he}</a
 					>
 					<span class="en-group">
-						<a href="/author/{poem.metadata.author.id}" class="author-link en"
-							>{poem.metadata.author.en}</a
+						<a
+							href="/author/{poem.metadata.author.id}"
+							class="author-link en">{poem.metadata.author.en}</a
 						>
 					</span>
 				</p>
@@ -114,7 +120,8 @@
 											target="_blank"
 											rel="noreferrer"
 											class="about-link"
-											aria-label="Wikipedia Link"><Fa icon={faWikipediaW} /></a
+											aria-label="Wikipedia Link"
+											><Fa icon={faWikipediaW} /></a
 										>
 									{/if}
 								</p>
@@ -131,7 +138,8 @@
 											target="_blank"
 											rel="noreferrer"
 											class="about-link"
-											aria-label="Wikipedia Link"><Fa icon={faWikipediaW} /></a
+											aria-label="Wikipedia Link"
+											><Fa icon={faWikipediaW} /></a
 										>
 									{/if}
 								</p>
@@ -168,7 +176,7 @@
 								aria-label="Change Layout"
 								class="layout-toggle"
 							>
-								{#if layoutMode === 'columns'}
+								{#if layoutMode === "columns"}
 									<svg
 										xmlns="http://www.w3.org/2000/svg"
 										width="18"
@@ -180,7 +188,13 @@
 										stroke-linecap="round"
 										stroke-linejoin="round"
 									>
-										<rect x="2" y="3" width="9" height="18" rx="2" /><rect
+										<rect
+											x="2"
+											y="3"
+											width="9"
+											height="18"
+											rx="2"
+										/><rect
 											x="13"
 											y="3"
 											width="9"
@@ -200,17 +214,32 @@
 										stroke-linecap="round"
 										stroke-linejoin="round"
 									>
-										<line x1="8" y1="6" x2="21" y2="6" /><line
+										<line
+											x1="8"
+											y1="6"
+											x2="21"
+											y2="6"
+										/><line
 											x1="8"
 											y1="12"
 											x2="21"
 											y2="12"
-										/><line x1="8" y1="18" x2="21" y2="18" /><line
+										/><line
+											x1="8"
+											y1="18"
+											x2="21"
+											y2="18"
+										/><line
 											x1="3"
 											y1="6"
 											x2="3.01"
 											y2="6"
-										/><line x1="3" y1="12" x2="3.01" y2="12" /><line
+										/><line
+											x1="3"
+											y1="12"
+											x2="3.01"
+											y2="12"
+										/><line
 											x1="3"
 											y1="18"
 											x2="3.01"
@@ -226,9 +255,14 @@
 						<div class="translation-control">
 							<label for="translation">Translation:</label>
 							<div class="select-wrapper">
-								<select bind:value={currentTranslationId} id="translation">
+								<select
+									bind:value={currentTranslationId}
+									id="translation"
+								>
 									{#each poem.translations as trans}
-										<option value={trans.id}>{trans.name}</option>
+										<option value={trans.id}
+											>{trans.name}</option
+										>
 									{/each}
 								</select>
 							</div>
@@ -237,32 +271,50 @@
 					<div class="meta-right">
 						<small class="copyright-info">
 							{currentTranslation.copyright}
-							(<a href={currentTranslation.infoUrl} target="_blank" rel="noreferrer">View</a>)
+							(<a
+								href={currentTranslation.infoUrl}
+								target="_blank"
+								rel="noreferrer">View</a
+							>)
 						</small>
 					</div>
 				</div>
 
 				<section class={getPoemClass()} id="poem">
 					{#key currentTranslationId}
-						<div class="translation-fade-wrapper" in:fade={{ duration: 400 }}>
+						<div
+							class="translation-fade-wrapper"
+							in:fade={{ duration: 400 }}
+						>
 							{#each poem.content as stanza, sIdx}
 								<div class="stanza-group">
 									{#each stanza as line}
 										<div class="line-grid">
-											<span class="line hebrew" data-line={line.id} role="presentation">
+											<span
+												class="line hebrew"
+												data-line={line.id}
+												role="presentation"
+											>
 												{line.hebrew}
 											</span>
-											<span class="line english" data-line={line.id} role="presentation">
-												{@html line.trans[currentTranslationId as keyof typeof line.trans] ||
-													line.trans['default']}
+											<span
+												class="line english"
+												data-line={line.id}
+												role="presentation"
+											>
+												{@html line.trans[
+													currentTranslationId as keyof typeof line.trans
+												] || line.trans["default"]}
 											</span>
 										</div>
-										{#if layoutMode === 'interlinear'}
+										{#if layoutMode === "interlinear"}
 											<div class="intl-seperator"></div>
 										{/if}
 									{/each}
 								</div>
-								<div class="stanza-sep"><span class="sep-ornament">❖</span></div>
+								<div class="stanza-sep">
+									<span class="sep-ornament">❖</span>
+								</div>
 							{/each}
 						</div>
 					{/key}
@@ -417,7 +469,7 @@
 	}
 
 	.poem-wrapper::before {
-		content: '';
+		content: "";
 		position: absolute;
 		top: 10px;
 		left: 10px;
@@ -515,7 +567,6 @@
 
 	/* Context Info */
 	.context-info {
-		max-width: 800px;
 		margin: 0 0 3rem 0;
 		text-align: left;
 		color: var(--text);
@@ -584,7 +635,7 @@
 	}
 
 	.line.hebrew {
-		font-family: 'Frank Ruhl Libre', serif;
+		font-family: "Frank Ruhl Libre", serif;
 		direction: rtl;
 		font-size: 1.35rem;
 		line-height: 1.5;
@@ -608,7 +659,7 @@
 		display: flex;
 		justify-content: center;
 		padding: 1.5rem 0;
-		color: var(--divider);
+		color: var(--divider-2);
 		pointer-events: none;
 		text-align: center;
 	}
@@ -627,7 +678,7 @@
 	/* Layout Modes */
 	:global(.mode-interlinear) .line-grid {
 		grid-template-columns: 1fr;
-		row-gap: 0.2rem;
+		row-gap: -0.1rem;
 	}
 
 	:global(.mode-interlinear) .line-row {
@@ -644,8 +695,12 @@
 	}
 
 	:global(.mode-interlinear) .line.english {
-		font-size: 1.1rem;
 		opacity: 0.8;
+		padding-top: 0;
+	}
+
+	:global(.mode-interlinear) .line.hebrew {
+		padding-bottom: 0;
 	}
 
 	/* Monolingual Overrides */
