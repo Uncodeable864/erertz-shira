@@ -19,6 +19,12 @@
             "name": "Nina Salaman (1924)",
             "copyright": "Jewish Publication Society of America, 1924",
             "infoUrl": "https://www.commentary.org/articles/jehuda-halevi/cedars-of-lebanon-the-journey-to-zion/"
+        },
+        {
+            "id": "sefaria",
+            "name": "Sefaria Community Translation - Incomplete",
+            "copyright": "Creative Commons 0",
+            "infoUrl": "https://www.sefaria.org/Kinnot_for_Tisha_B'Av_(Ashkenaz)%2C_Kinot_for_Tisha_B'Av_Day.36.1?ven=hebrew|Kinnot_for_Tisha_B%27Av_--_Wikisource&lang=bi&with=all&lang2=en"
         }
     ],
     "content": [
@@ -27,14 +33,16 @@
                 "id": "line1",
                 "hebrew": "צִיּוֹן, הֲלֹא תִשְׁאֲלִי לִשְׁלוֹם אֲסִירַיִךְ,",
                 "trans": {
-                    "default": "Zion! wilt thou not ask if peace be with thy captives"
+                    "default": "Zion! wilt thou not ask if peace be with thy captives",
+                    "sefaria": "Zion, will you not ask if peace has come to your prisoners,"
                 }
             },
             {
                 "id": "line2",
                 "hebrew": "דּוֹרְשֵׁי שְׁלוֹמֵךְ וְהֵם יֶתֶר עֲדָרָיִךְ?",
                 "trans": {
-                    "default": "That seek thy peace—that are the remnant of thy flock?"
+                    "default": "That seek thy peace—that are the remnant of thy flock?",
+                    "sefaria": "the seekers of your peace, the remainder of your flock?"
                 }
             }
         ],
@@ -43,14 +51,16 @@
                 "id": "line3",
                 "hebrew": "מִיָּם וּמִזְרָח וּמִצָּפוֹן וְתֵימָן שְׁלוֹם",
                 "trans": {
-                    "default": "From west and east, from north and south—the greeting"
+                    "default": "From west and east, from north and south—the greeting",
+                    "sefaria": "From the sea and from the east, from the north and from Yemen;"
                 }
             },
             {
                 "id": "line4",
                 "hebrew": "רָחוֹק וְקָרוֹב שְׂאִי מִכֹּל עֲבָרָיִךְ,",
                 "trans": {
-                    "default": "\"Peace\" from far and near, take thou from every side;"
+                    "default": "\"Peace\" from far and near, take thou from every side;",
+                    "sefaria": "From far and from near, lift them up from all around you;"
                 }
             }
         ],
@@ -59,14 +69,16 @@
                 "id": "line5",
                 "hebrew": "וּשְׁלוֹם אֲסִיר תַּאֲוָה, נוֹתֵן דְּמָעָיו כְּטַל–",
                 "trans": {
-                    "default": "And greeting from the captive of desire, giving his tears like dew"
+                    "default": "And greeting from the captive of desire, giving his tears like dew",
+                    "sefaria": "It is peace that the prisoner craves, giving his cries like the dew"
                 }
             },
             {
                 "id": "line6",
                 "hebrew": "חֶרְמוֹן וְנִכְסַף לְרִדְתָּם עַל הֲרָרָיִךְ!",
                 "trans": {
-                    "default": "Of Hermon, and longing to let them fall upon thine hills."
+                    "default": "Of Hermon, and longing to let them fall upon thine hills.",
+                    "sefaria": "Of Hermon, and let them fall upon your mountains."
                 }
             }
         ],
@@ -75,14 +87,16 @@
                 "id": "line7",
                 "hebrew": "לִבְכּוֹת עֱנוּתֵךְ אֲנִי תַנִּים, וְעֵת אֶחֱלֹם",
                 "trans": {
-                    "default": "To wail for thine affliction I am like the jackals; but when I dream"
+                    "default": "To wail for thine affliction I am like the jackals; but when I dream",
+                    "sefaria": "When crying over your suffering I am like a jackal, and when I dream"
                 }
             },
             {
                 "id": "line8",
                 "hebrew": "שִׁיבַת שְׁבוּתֵך – אֲנִי כִנּוֹר לְשִׁירָיִךְ.",
                 "trans": {
-                    "default": "Of the return of thy captivity, I am a harp for thy songs."
+                    "default": "Of the return of thy captivity, I am a harp for thy songs.",
+                    "sefaria": "of your return from exile, I am a harp for your songs."
                 }
             }
         ],
@@ -91,14 +105,16 @@
                 "id": "line9",
                 "hebrew": "לִבִּי לְבֵית-אֵל וְלִפְנִיאֵל מְאֹד יֶהֱמֶה",
                 "trans": {
-                    "default": "My heart to Bethel and Peniel yearneth sore,"
+                    "default": "My heart to Bethel and Peniel yearneth sore,",
+                    "sefaria": "My heart is in Beth-El, and to Peniel I yearn."
                 }
             },
             {
                 "id": "line10",
                 "hebrew": "וּלְמַחֲנַיִם וְכֹל פִּגְעֵי טְהוֹרָיִךְ,",
                 "trans": {
-                    "default": "To Mahanaim and to all the places where thy pure ones have met."
+                    "default": "To Mahanaim and to all the places where thy pure ones have met.",
+                    "sefaria": "To Mahanaim and all the meeting places of your righteous"
                 }
             }
         ],
@@ -107,14 +123,16 @@
                 "id": "line11",
                 "hebrew": "שָׁם הַשְּׁכִינָה שְׁכֵנָה לָךְ, וְהַיּוֹצְרֵךְ",
                 "trans": {
-                    "default": "There the Presence abideth in thee; yea, there thy Maker"
+                    "default": "There the Presence abideth in thee; yea, there thy Maker",
+                    "sefaria": "There where the Shechina settled on you, and where your creator"
                 }
             },
             {
                 "id": "line12",
                 "hebrew": "פָּתַח לְמוּל שַׁעֲרֵי שַׁחַק שְׁעָרָיִךְ,",
                 "trans": {
-                    "default": "Opened thy gates to face the gates of heaven."
+                    "default": "Opened thy gates to face the gates of heaven.",
+                    "sefaria": "opened the gates of heaven to your gates"
                 }
             }
         ],
@@ -123,14 +141,16 @@
                 "id": "line13",
                 "hebrew": "וּכְבוֹד אֲדֹנָי לְבַד הָיָה מְאוֹרֵךְ, וְאֵין",
                 "trans": {
-                    "default": "And the Lord's glory alone was thy light;"
+                    "default": "And the Lord's glory alone was thy light;",
+                    "sefaria": "And the glory of God would be your only light;"
                 }
             },
             {
                 "id": "line14",
                 "hebrew": "שֶׁמֶשׁ וְסַהַר וְכוֹכָבִים מְאִירָיִךְ.",
                 "trans": {
-                    "default": "No sun nor moon nor stars were luminants for thee."
+                    "default": "No sun nor moon nor stars were luminants for thee.",
+                    "sefaria": "the sun and crescent and stars would not be your light"
                 }
             }
         ],
@@ -139,14 +159,16 @@
                 "id": "line15",
                 "hebrew": "אֶבְחַר לְנַפְשִׁי לְהִשְׁתַּפֵּךְ בְּמָקוֹם אֲשֶר",
                 "trans": {
-                    "default": "I would choose for my soul to pour itself out within that place"
+                    "default": "I would choose for my soul to pour itself out within that place",
+                    "sefaria": "I will choose for my soul to spill out onto the place"
                 }
             },
             {
                 "id": "line16",
                 "hebrew": "רוּחַ אֱלֹהִים שְׁפוּכָה עַל בְּחִירָיִךְ.",
                 "trans": {
-                    "default": "Where the spirit of God was outpoured upon thy chosen."
+                    "default": "Where the spirit of God was outpoured upon thy chosen.",
+                    "sefaria": "where the spirit of the Lord poured out onto your chosen."
                 }
             }
         ],

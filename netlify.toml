@@ -1,5 +1,0 @@
-[build]
-  # "true" returns exit code 0, which tells Netlify to CANCEL the build.
-  # This effectively disables strict git-based auto-publishing.
-  # You can still manually "Trigger deploy" from the Netlify dashboard.
-  ignore = "true"

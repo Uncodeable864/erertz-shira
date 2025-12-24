@@ -114,7 +114,7 @@
 								<p>
 									{poem.metadata.description}
 									{#if poem.metadata.infoUrl}
-										<span class="info-sep">·</span>
+										<span class="info-sep" />
 										<a
 											href={poem.metadata.infoUrl}
 											target="_blank"
@@ -132,7 +132,7 @@
 								<p>
 									{poem.metadata.author.description}
 									{#if poem.metadata.author.infoUrl}
-										<span class="info-sep">·</span>
+										<span class="info-sep" />
 										<a
 											href={poem.metadata.author.infoUrl}
 											target="_blank"
@@ -270,7 +270,7 @@
 					</div>
 					<div class="meta-right">
 						<small class="copyright-info">
-							{currentTranslation.copyright}
+							Translation (c): {currentTranslation.copyright}
 							(<a
 								href={currentTranslation.infoUrl}
 								target="_blank"
@@ -289,7 +289,12 @@
 							{#each poem.content as stanza, sIdx}
 								<div class="stanza-group">
 									{#each stanza as line}
-										<div class="line-grid">
+										{@const currentTrans =
+											line.trans[currentTranslationId]}
+										<div
+											class="line-grid"
+											class:centered-hebrew={!currentTrans}
+										>
 											<span
 												class="line hebrew"
 												data-line={line.id}
@@ -297,15 +302,15 @@
 											>
 												{line.hebrew}
 											</span>
-											<span
-												class="line english"
-												data-line={line.id}
-												role="presentation"
-											>
-												{@html line.trans[
-													currentTranslationId as keyof typeof line.trans
-												] || line.trans["default"]}
-											</span>
+											{#if currentTrans}
+												<span
+													class="line english"
+													data-line={line.id}
+													role="presentation"
+												>
+													{@html currentTrans}
+												</span>
+											{/if}
 										</div>
 										{#if layoutMode === "interlinear"}
 											<div class="intl-seperator"></div>
@@ -358,7 +363,10 @@
 	.main-title .he {
 		font-size: 2.4rem;
 		color: var(--brand);
-		opacity: 0.9;
+		text-shadow:
+			1px 1px 0px rgba(255, 255, 255, 0.8),
+			2px 2px 4px rgba(0, 0, 0, 0.05);
+
 		margin-top: -0.5rem;
 		justify-self: end;
 		text-align: right;
@@ -366,7 +374,6 @@
 
 	.author-meta {
 		margin: 0 auto 3rem;
-
 		font-size: 1.1rem;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -620,6 +627,17 @@
 		box-shadow: 0 0 15px rgba(44, 82, 130, 0.1);
 		color: var(--brand);
 	}
+
+	/* Centered Hebrew (Missing Translation) */
+	.line-grid.centered-hebrew {
+		grid-template-columns: 1fr;
+	}
+
+	.line-grid.centered-hebrew .line.hebrew {
+		justify-self: center;
+		text-align: center;
+	}
+
 	/* Line and Hover Effects */
 	.line-row {
 		display: contents;
