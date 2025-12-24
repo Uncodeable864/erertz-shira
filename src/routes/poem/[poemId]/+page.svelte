@@ -23,6 +23,7 @@
 	let layoutMode: LayoutMode = $state("columns");
 	let currentTranslationId = $state("default");
 	let showNikkudot = $state(true);
+	let highlightedLineId = $state<string | null>(null);
 
 	let lineNumberMap = $derived(computeLineNumbers(poem.content));
 	let poemClass = $derived(getPoemClasses(viewMode, layoutMode));
@@ -59,6 +60,10 @@
 
 	function handleTranslationChange(id: string) {
 		currentTranslationId = id;
+	}
+
+	function toggleLineHighlight(lineId: string) {
+		highlightedLineId = highlightedLineId === lineId ? null : lineId;
 	}
 
 	// Helper function to return Hebrew text with or without nikkudot
@@ -143,7 +148,15 @@
 									<div class="stanza-group">
 										<!-- All Hebrew lines in this stanza -->
 										{#each stanza as line}
-											<div class="line-grid">
+											<div
+												class="line-grid"
+												class:highlighted={highlightedLineId ===
+													line.id}
+												onclick={() =>
+													toggleLineHighlight(
+														line.id,
+													)}
+											>
 												<span
 													class="line hebrew"
 													data-line={line.id}
@@ -161,7 +174,15 @@
 													currentTranslationId
 												]}
 											{#if currentTrans}
-												<div class="line-grid">
+												<div
+													class="line-grid"
+													class:highlighted={highlightedLineId ===
+														line.id}
+													onclick={() =>
+														toggleLineHighlight(
+															line.id,
+														)}
+												>
 													<span
 														class="line english"
 														data-line={line.id}
@@ -184,6 +205,12 @@
 											<div
 												class="line-grid"
 												class:centered-hebrew={!currentTrans}
+												class:highlighted={highlightedLineId ===
+													line.id}
+												onclick={() =>
+													toggleLineHighlight(
+														line.id,
+													)}
 											>
 												<span class="line-number"
 													>{lineNumberMap.get(
@@ -319,9 +346,15 @@
 	}
 
 	.line-grid:hover {
+		background: rgba(44, 82, 130, 0.04);
+		transform: translateY(-1px);
+		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+	}
+
+	.line-grid.highlighted {
 		background: var(--highlight);
-		transform: scale(1.02);
-		box-shadow: 0 0 15px rgba(44, 82, 130, 0.1);
+		transform: scale(1.015);
+		box-shadow: 0 0 12px rgba(44, 82, 130, 0.12);
 		color: var(--brand);
 	}
 
