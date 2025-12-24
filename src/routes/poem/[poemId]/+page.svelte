@@ -124,42 +124,84 @@
 							class="translation-fade-wrapper"
 							in:fade={{ duration: 400 }}
 						>
-							{#each poem.content as stanza}
-								<div class="stanza-group">
-									{#each stanza as line}
-										{@const currentTrans =
-											line.trans[currentTranslationId]}
-										<div
-											class="line-grid"
-											class:centered-hebrew={!currentTrans}
-										>
-											<span class="line-number"
-												>{lineNumberMap.get(
-													line.id,
-												)}</span
-											>
-											<span
-												class="line hebrew"
-												data-line={line.id}
-												role="presentation"
-											>
-												{line.hebrew}
-											</span>
-											{#if currentTrans}
+							{#each poem.content as stanza, stanzaIdx}
+								{#if layoutMode === "stanza"}
+									<!-- Stanza mode: group all Hebrew, then all English -->
+									<div class="stanza-group">
+										<!-- All Hebrew lines in this stanza -->
+										{#each stanza as line}
+											<div class="line-grid">
 												<span
-													class="line english"
+													class="line hebrew"
 													data-line={line.id}
 													role="presentation"
 												>
-													{@html currentTrans}
+													{line.hebrew}
 												</span>
+											</div>
+										{/each}
+
+										<!-- All English lines in this stanza -->
+										{#each stanza as line}
+											{@const currentTrans =
+												line.trans[
+													currentTranslationId
+												]}
+											{#if currentTrans}
+												<div class="line-grid">
+													<span
+														class="line english"
+														data-line={line.id}
+														role="presentation"
+													>
+														{@html currentTrans}
+													</span>
+												</div>
 											{/if}
-										</div>
-										{#if layoutMode === "interlinear"}
-											<div class="intl-seperator"></div>
-										{/if}
-									{/each}
-								</div>
+										{/each}
+									</div>
+								{:else}
+									<!-- Columns & Interlinear modes: line-by-line -->
+									<div class="stanza-group">
+										{#each stanza as line}
+											{@const currentTrans =
+												line.trans[
+													currentTranslationId
+												]}
+											<div
+												class="line-grid"
+												class:centered-hebrew={!currentTrans}
+											>
+												<span class="line-number"
+													>{lineNumberMap.get(
+														line.id,
+													)}</span
+												>
+												<span
+													class="line hebrew"
+													data-line={line.id}
+													role="presentation"
+												>
+													{line.hebrew}
+												</span>
+												{#if currentTrans}
+													<span
+														class="line english"
+														data-line={line.id}
+														role="presentation"
+													>
+														{@html currentTrans}
+													</span>
+												{/if}
+											</div>
+											{#if layoutMode === "interlinear"}
+												<div
+													class="intl-seperator"
+												></div>
+											{/if}
+										{/each}
+									</div>
+								{/if}
 								<div class="stanza-sep">
 									<span class="sep-ornament">❖</span>
 								</div>
@@ -396,7 +438,6 @@
 	:global(.mode-stanza) .stanza-group {
 		display: flex;
 		flex-direction: column;
-		gap: 2rem;
 		margin-bottom: 1rem;
 	}
 
