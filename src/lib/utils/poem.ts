@@ -22,3 +22,12 @@ export function getPoemClasses(
     if (layoutMode === 'stanza') classes.push('mode-stanza');
     return classes.join(' ');
 }
+
+/**
+ * Remove Hebrew nikkudot (vowel points and cantillation marks)
+ * Unicode ranges: U+0591-U+05C7
+ */
+export function removeNikkudot(text: string): string {
+    // Remove Hebrew vowel points and cantillation marks
+    return text.replace(/[\u0591-\u05BD\u05BF\u05C1-\u05C2\u05C4-\u05C5\u05C7]/g, '');
+}

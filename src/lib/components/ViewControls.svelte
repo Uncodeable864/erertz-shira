@@ -2,11 +2,20 @@
     type LayoutMode = "columns" | "interlinear" | "stanza";
     type ViewMode = "hebrew" | "both" | "english";
 
-    let { viewMode, layoutMode, onViewModeChange, onCycleLayout } = $props<{
+    let {
+        viewMode,
+        layoutMode,
+        showNikkudot,
+        onViewModeChange,
+        onCycleLayout,
+        onToggleNikkudot,
+    } = $props<{
         viewMode: ViewMode;
         layoutMode: LayoutMode;
+        showNikkudot: boolean;
         onViewModeChange: (mode: ViewMode) => void;
         onCycleLayout: () => void;
+        onToggleNikkudot: () => void;
     }>();
 </script>
 
@@ -112,6 +121,16 @@
             </svg>
         {/if}
     </button>
+    <div class="divider"></div>
+    <button
+        class:active={showNikkudot}
+        onclick={onToggleNikkudot}
+        title="Toggle Nikkudot (Vowel Points)"
+        aria-label="Toggle Nikkudot"
+        class="nikkudot-toggle"
+    >
+        <span class="nikkud-indicator">ָא</span>
+    </button>
 </div>
 
 <style>
@@ -153,6 +172,16 @@
         min-width: 48px;
         font-size: 0.85rem;
         letter-spacing: 0.05em;
+    }
+
+    .view-controls button.nikkudot-toggle {
+        min-width: 32px;
+    }
+
+    .nikkud-indicator {
+        font-family: "Frank Ruhl Libre", serif;
+        font-size: 1.2rem;
+        line-height: 1;
     }
 
     .view-controls button:hover {

@@ -8,6 +8,7 @@
 	import {
 		computeLineNumbers,
 		getPoemClasses,
+		removeNikkudot,
 		type ViewMode,
 	} from "$lib/utils/poem";
 
@@ -21,6 +22,7 @@
 	let viewMode: ViewMode = $state("both");
 	let layoutMode: LayoutMode = $state("columns");
 	let currentTranslationId = $state("default");
+	let showNikkudot = $state(true);
 
 	let lineNumberMap = $derived(computeLineNumbers(poem.content));
 	let poemClass = $derived(getPoemClasses(viewMode, layoutMode));
@@ -51,8 +53,17 @@
 		}
 	}
 
+	function toggleNikkudot() {
+		showNikkudot = !showNikkudot;
+	}
+
 	function handleTranslationChange(id: string) {
 		currentTranslationId = id;
+	}
+
+	// Helper function to return Hebrew text with or without nikkudot
+	function getHebrewText(text: string): string {
+		return showNikkudot ? text : removeNikkudot(text);
 	}
 </script>
 
@@ -104,8 +115,10 @@
 						<ViewControls
 							{viewMode}
 							{layoutMode}
+							{showNikkudot}
 							onViewModeChange={handleViewModeChange}
 							onCycleLayout={cycleLayoutMode}
+							onToggleNikkudot={toggleNikkudot}
 						/>
 
 						<div class="meta-sep"></div>
@@ -136,7 +149,7 @@
 													data-line={line.id}
 													role="presentation"
 												>
-													{line.hebrew}
+													{getHebrewText(line.hebrew)}
 												</span>
 											</div>
 										{/each}
@@ -182,7 +195,7 @@
 													data-line={line.id}
 													role="presentation"
 												>
-													{line.hebrew}
+													{getHebrewText(line.hebrew)}
 												</span>
 												{#if currentTrans}
 													<span
