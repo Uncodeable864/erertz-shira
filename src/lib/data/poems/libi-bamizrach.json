@@ -1,0 +1,86 @@
+{
+    "metadata": {
+        "title": "My Heart is in the East",
+        "hebrewTitle": "לבי במזרח",
+        "description": "A deeply personal expression of yearning for Zion, this poem captures Yehuda HaLevi's spiritual longing for Jerusalem while physically distant in the West. The poem contrasts the poet's physical location with his spiritual orientation, embodying the medieval Jewish experience of exile and the enduring connection to the Land of Israel.",
+        "author": {
+            "id": "yehuda-halevi",
+            "en": "Yehuda HaLevi",
+            "he": "יהודה הלוי",
+            "description": "Yehuda HaLevi (c. 1075–1141) was one of the greatest Hebrew poets and Jewish philosophers of medieval Spain. Born in Toledo during the Golden Age of Jewish culture in Al-Andalus, he excelled in both secular and religious poetry. His philosophical work, the Kuzari, defends Judaism through a fictional dialogue. Late in life, he left Spain to journey to the Land of Israel, expressing his profound longing for Zion in his poetry. His exact fate remains uncertain, though tradition holds he reached Jerusalem.",
+            "infoUrl": "https://en.wikipedia.org/wiki/Judah_Halevi"
+        }
+    },
+    "translations": [
+        {
+            "id": "default",
+            "name": "T. Carmi Translation",
+            "author": "T. Carmi",
+            "copyright": "T. Carmi, 1981",
+            "infoUrl": "https://www.penguinrandomhouse.com/books/297796/the-penguin-book-of-hebrew-verse-by-edited-and-translated-by-t-carmi/"
+        },
+        {
+            "id": "scheindlin",
+            "name": "Raymond Scheindlin Translation",
+            "author": "Raymond Scheindlin",
+            "copyright": "Raymond Scheindlin, 1991",
+            "infoUrl": "https://www.penguinrandomhouse.com/books/115911/the-gazelle-by-raymond-p-scheindlin/"
+        }
+    ],
+    "content": [
+        [
+            {
+                "id": "line1",
+                "hebrew": "לִבִּי בַמִּזְרָח וְאָנֹכִי בְּסוֹף מַעֲרָב,",
+                "trans": {
+                    "default": "My heart is in the East, and I in the uttermost West—",
+                    "scheindlin": "My heart is in the East, and I at the edge of the West."
+                }
+            },
+            {
+                "id": "line2",
+                "hebrew": "אֵיךְ אֶטְעֲמָה אֵת אֲשֶׁר אֹכַל וְאֵיךְ יֶעֱרָב?",
+                "trans": {
+                    "default": "How can I savor food? How can I enjoy it?",
+                    "scheindlin": "How can I savor food? How could I enjoy it?"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line3",
+                "hebrew": "אֵיכָה אֲשַׁלֵּם נְדָרַי וָאֱסָרַי, בְּעוֹד",
+                "trans": {
+                    "default": "How can I fulfill my vows and my bonds, while",
+                    "scheindlin": "How can I fulfill my pledges and my vows"
+                }
+            },
+            {
+                "id": "line4",
+                "hebrew": "צִיּוֹן בְּחֶבֶל אֱדוֹם וַאֲנִי בְּכֶבֶל עֲרָב?",
+                "trans": {
+                    "default": "Zion lies beneath the fetter of Edom, and I in Arab chains?",
+                    "scheindlin": "while Zion lies beneath the rope of Edom, and I am bound by Arab chains?"
+                }
+            }
+        ],
+        [
+            {
+                "id": "line5",
+                "hebrew": "יֵקַל בְּעֵינַי עֲזֹב כָּל טוּב סְפָרַד, כְּמוֹ",
+                "trans": {
+                    "default": "A light thing it would seem to me to leave all the good things of Spain—",
+                    "scheindlin": "It would be nothing to me to leave all the pleasures of Spain—"
+                }
+            },
+            {
+                "id": "line6",
+                "hebrew": "יֵיקַר בְּעֵינַי רְאוֹת עַפְרוֹת דְּבִיר נֶחֱרָב.",
+                "trans": {
+                    "default": "Seeing how precious in my eyes it is to behold the dust of the ruined Shrine.",
+                    "scheindlin": "Seeing how precious in my eyes to see the dust of the ruined Shrine."
+                }
+            }
+        ]
+    ]
+}
