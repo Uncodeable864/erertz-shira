@@ -50,6 +50,18 @@
 		) || poem.translations[0],
 	);
 
+	// Compute global line numbers
+	let lineNumberMap = $derived.by(() => {
+		const map = new Map<string, number>();
+		let count = 1;
+		for (const stanza of poem.content) {
+			for (const line of stanza) {
+				map.set(line.id, count++);
+			}
+		}
+		return map;
+	});
+
 	function toggleHebrew() {
 		showHebrew = !showHebrew;
 		if (!showHebrew && !showEnglish) showEnglish = true;
@@ -295,6 +307,11 @@
 											class="line-grid"
 											class:centered-hebrew={!currentTrans}
 										>
+											<span class="line-number"
+												>{lineNumberMap.get(
+													line.id,
+												)}</span
+											>
 											<span
 												class="line hebrew"
 												data-line={line.id}
@@ -612,13 +629,14 @@
 	.line-grid {
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr 2rem 1fr; /* 3-column grid */
 		justify-content: center;
-		column-gap: 3rem;
+		column-gap: 1.5rem; /* Space between number and text */
 		row-gap: 0.5rem;
 		max-width: 1000px;
 		padding: 0.1rem 0.6rem;
 		transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+		/* Baseline removed for better vertical centering of numbers */
 	}
 
 	.line-grid:hover {
@@ -630,12 +648,17 @@
 
 	/* Centered Hebrew (Missing Translation) */
 	.line-grid.centered-hebrew {
-		grid-template-columns: 1fr;
+		grid-template-columns: 2rem 1fr 2rem; /* Keep structure but text is centered */
 	}
 
 	.line-grid.centered-hebrew .line.hebrew {
+		grid-column: 2; /* Center column if using 3-col specialized? No, 2rem 1fr 2rem is simpler */
 		justify-self: center;
 		text-align: center;
+	}
+
+	.line-grid.centered-hebrew .line-number {
+		grid-column: 1; /* Number on far left as fallback */
 	}
 
 	/* Line and Hover Effects */
@@ -650,9 +673,22 @@
 		transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 		cursor: default;
 		position: relative;
+		align-self: start; /* Ensure text starts at top */
+	}
+
+	.line-number {
+		grid-column: 2; /* Middle column by default */
+		grid-row: 1;
+		color: var(--divider-2);
+		font-size: 0.75rem;
+		align-self: center;
+		justify-self: center;
+		user-select: none;
+		font-variant-numeric: tabular-nums;
 	}
 
 	.line.hebrew {
+		grid-column: 1; /* Left column */
 		font-family: "Frank Ruhl Libre", serif;
 		direction: rtl;
 		font-size: 1.35rem;
@@ -662,6 +698,7 @@
 	}
 
 	.line.english {
+		grid-column: 3; /* Right column */
 		font-size: 1.2rem;
 		line-height: 1.5;
 		justify-self: start;
@@ -695,47 +732,65 @@
 
 	/* Layout Modes */
 	:global(.mode-interlinear) .line-grid {
-		grid-template-columns: 1fr;
+		grid-template-columns: 2rem 1fr; /* Number | Content */
 		row-gap: -0.1rem;
+		column-gap: 0;
 	}
 
-	:global(.mode-interlinear) .line-row {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.5rem;
+	:global(.mode-interlinear) .line-grid.centered-hebrew {
+		grid-template-columns: 2rem 1fr;
 	}
 
-	:global(.mode-interlinear) .line {
-		justify-self: center !important;
-		align-self: center !important;
-		text-align: center !important;
+	:global(.mode-interlinear) .line-number {
+		grid-column: 1;
+		grid-row: 1 / span 2;
+		justify-self: center;
+		/* align-self: center; Inherited from base class, removes start override */
 	}
 
-	:global(.mode-interlinear) .line.english {
-		opacity: 0.8;
-		padding-top: 0;
+	:global(.mode-interlinear) .line-grid.centered-hebrew .line-number {
+		grid-row: 1;
 	}
 
 	:global(.mode-interlinear) .line.hebrew {
+		grid-column: 2;
+		grid-row: 1;
+		justify-self: center;
+		text-align: center;
 		padding-bottom: 0;
+	}
+
+	:global(.mode-interlinear) .line.english {
+		grid-column: 2;
+		grid-row: 2;
+		justify-self: center;
+		text-align: center;
+		opacity: 0.8;
+		padding-top: 0;
 	}
 
 	/* Monolingual Overrides */
 	:global(.poem.hide-hebrew) .line-grid,
 	:global(.poem.hide-english) .line-grid {
-		grid-template-columns: 1fr;
+		grid-template-columns: 2rem 1fr; /* Number | Content */
 		width: fit-content;
 		max-width: 100%;
 		margin: 0 auto;
 	}
 
+	:global(.poem.hide-hebrew) .line-number,
+	:global(.poem.hide-english) .line-number {
+		grid-column: 1;
+	}
+
 	:global(.poem.hide-hebrew) .line.english {
+		grid-column: 2;
 		justify-self: center;
 		text-align: center;
 	}
 
 	:global(.poem.hide-english) .line.hebrew {
+		grid-column: 2;
 		justify-self: center;
 		text-align: center;
 	}
@@ -784,8 +839,14 @@
 		}
 
 		.line-grid {
-			grid-template-columns: 1fr;
+			grid-template-columns: 1.5rem 1fr; /* Force interlinear-like layout on mobile? */
 			row-gap: 0.5rem;
+		}
+
+		.line-number {
+			grid-column: 1;
+			grid-row: 1 / span 2;
+			padding-top: 0.5rem;
 		}
 
 		.line-row {
@@ -798,6 +859,16 @@
 			width: 100%;
 			text-align: center !important;
 			justify-self: center !important;
+		}
+
+		.line.hebrew {
+			grid-column: 2;
+			grid-row: 1;
+		}
+
+		.line.english {
+			grid-column: 2;
+			grid-row: 2;
 		}
 
 		.main-title {
