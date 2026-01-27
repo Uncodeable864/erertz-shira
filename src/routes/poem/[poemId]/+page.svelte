@@ -583,53 +583,107 @@
 
 	@media (max-width: 768px) {
 		.poem-wrapper {
-			padding: 2rem 1.5rem;
+			padding: 1.5rem 1rem;
 			border-radius: 0;
 			border-left: none;
 			border-right: none;
+			margin-bottom: 3rem;
+		}
+
+		.poem-wrapper::before,
+		.poem-wrapper::after {
+			display: none;
+		}
+
+		.context-info {
+			padding: 1.25rem;
+			margin-bottom: 2rem;
 		}
 
 		.poem-meta-bar {
 			flex-direction: column;
 			align-items: stretch;
-			gap: 1rem;
-			padding: 1rem;
-			margin: 0 -1.5rem 2rem;
-			top: 0;
+			gap: 0.75rem;
+			padding: 0.75rem 1rem;
+			margin: 0 -1rem 1.5rem;
+			top: 4px;
 		}
 
 		.meta-left {
 			width: 100%;
-			justify-content: space-between;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+		}
+
+		.meta-sep {
+			display: none;
 		}
 
 		.line-grid {
-			grid-template-columns: 2rem 1fr;
-			row-gap: 0.5rem;
+			grid-template-columns: 1.75rem 1fr;
+			row-gap: 0.25rem;
+			column-gap: 0.5rem;
+			padding: 0.5rem 0.5rem;
 		}
 
 		.line-number {
 			grid-column: 1;
 			grid-row: 1 / span 2;
 			padding-top: 0.5rem;
+			font-size: 0.7rem;
 		}
 
 		.line {
 			width: 100%;
 			text-align: center !important;
 			justify-self: center !important;
+			padding: 0.375rem 0.5rem;
 		}
 
 		.line.hebrew {
 			grid-column: 2;
 			grid-row: 1;
-			font-size: 1.3rem;
+			font-size: 1.2rem;
 		}
 
 		.line.english {
 			grid-column: 2;
 			grid-row: 2;
+			font-size: 1rem;
+		}
+
+		.stanza-sep {
+			padding: 1.5rem 0;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.poem-wrapper {
+			padding: 1rem 0.75rem;
+		}
+
+		.poem-meta-bar {
+			padding: 0.5rem 0.75rem;
+			margin: 0 -0.75rem 1.25rem;
+		}
+
+		.line-grid {
+			grid-template-columns: 1.5rem 1fr;
+			padding: 0.375rem;
+		}
+
+		.line.hebrew {
 			font-size: 1.1rem;
+		}
+
+		.line.english {
+			font-size: 0.95rem;
+		}
+
+		.context-info {
+			padding: 1rem;
+			font-size: 0.95rem;
 		}
 	}
 </style>

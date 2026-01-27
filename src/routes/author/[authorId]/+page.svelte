@@ -190,9 +190,17 @@
 		font-weight: 500;
 	}
 
-	@media (max-width: 600px) {
+	@media (max-width: 768px) {
 		.author-page {
-			padding: 3rem 1.5rem;
+			padding: 2.5rem 1rem;
+		}
+
+		.author-header {
+			margin-bottom: 3rem;
+		}
+
+		.author-name {
+			margin-bottom: 1.5rem;
 		}
 
 		.author-name .en {
@@ -210,7 +218,53 @@
 
 		.grid {
 			grid-template-columns: 1fr;
-			gap: 1.5rem;
+			gap: 1.25rem;
+			margin-top: 1.5rem;
+		}
+
+		.poem-card {
+			padding: 1.5rem;
+			min-height: 44px;
+		}
+
+		.poem-title-en {
+			font-size: 1.2rem;
+		}
+
+		.poem-title-he {
+			font-size: 1.25rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.author-page {
+			padding: 2rem 0.75rem;
+		}
+
+		.author-name .en {
+			font-size: 2rem;
+		}
+
+		.author-name .he {
+			font-size: 1.6rem;
+		}
+
+		.author-bio {
+			font-size: 1rem;
+			padding: 1.25rem;
+		}
+
+		.poem-card {
+			padding: 1.25rem 1rem;
+			gap: 0.5rem;
+		}
+
+		.poem-title-en {
+			font-size: 1.1rem;
+		}
+
+		.poem-title-he {
+			font-size: 1.15rem;
 		}
 	}
 

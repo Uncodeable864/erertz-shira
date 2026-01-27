@@ -152,7 +152,8 @@
     }
 
     .view-controls button {
-        height: 36px;
+        height: 44px;
+        min-height: 44px;
         border: none;
         background: transparent;
         color: var(--text-muted);
@@ -166,6 +167,8 @@
         justify-content: center;
         padding: 0 0.75rem;
         font-family: var(--font-serif);
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
     .view-controls button:hover {
@@ -174,18 +177,26 @@
         transform: translateY(-1px);
     }
 
+    .view-controls button:active {
+        transform: scale(0.95);
+    }
+
     .view-controls button.lang-toggle {
-        min-width: 36px;
+        min-width: 44px;
     }
 
     .view-controls button.lang-toggle.both {
-        min-width: 52px;
+        min-width: 56px;
         font-size: 0.9rem;
         letter-spacing: 0.05em;
     }
 
     .view-controls button.nikkudot-toggle {
-        min-width: 36px;
+        min-width: 44px;
+    }
+
+    .view-controls button.layout-toggle {
+        min-width: 44px;
     }
 
     .nikkud-indicator {
@@ -201,7 +212,6 @@
         position: relative;
     }
 
-    /* Subtle accent indicator for active state */
     .view-controls button.active::after {
         content: "";
         position: absolute;
@@ -218,6 +228,25 @@
         width: 1px;
         height: 24px;
         background: var(--divider-primary);
-        margin: 0 0.5rem;
+        margin: 0 0.25rem;
+    }
+
+    @media (max-width: 480px) {
+        .view-controls {
+            padding: 0.125rem;
+        }
+
+        .view-controls button {
+            padding: 0 0.5rem;
+        }
+
+        .view-controls button.lang-toggle.both {
+            min-width: 48px;
+            font-size: 0.85rem;
+        }
+
+        .divider {
+            margin: 0 0.125rem;
+        }
     }
 </style>

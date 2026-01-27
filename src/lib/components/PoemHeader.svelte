@@ -163,19 +163,42 @@
 
     @media (max-width: 768px) {
         .header-inner {
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1rem;
+        }
+
+        .ornament-top,
+        .ornament-bottom {
+            font-size: 1rem;
+            margin: 0.75rem 0;
+        }
+
+        .title-section {
+            margin: 1.5rem 0 2rem;
+            gap: 1rem;
         }
 
         .title-he {
-            font-size: 2rem;
+            font-size: 1.75rem;
         }
 
         .title-en {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
+        }
+
+        .title-divider {
+            width: 80px;
+        }
+
+        .author-section {
+            margin: 1.5rem 0 0.75rem;
         }
 
         .author-link {
             font-size: 1.1rem;
+            padding: 0.5rem;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .author-he {
@@ -189,6 +212,28 @@
 
         .author-separator {
             display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header-inner {
+            padding: 1.25rem 0.75rem;
+        }
+
+        .title-he {
+            font-size: 1.5rem;
+        }
+
+        .title-en {
+            font-size: 1.3rem;
+        }
+
+        .author-link {
+            font-size: 1rem;
+        }
+
+        .author-he {
+            font-size: 1.1rem;
         }
     }
 </style>

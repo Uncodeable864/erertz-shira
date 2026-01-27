@@ -508,56 +508,137 @@
 	/* Responsive Design */
 	@media (max-width: 768px) {
 		.hero {
-			min-height: 60vh;
+			min-height: 55vh;
 		}
 
 		.hero-content {
-			padding: 2rem 1.5rem;
+			padding: 1.5rem 1rem;
+		}
+
+		.hero-ornament {
+			font-size: 1.25rem;
+		}
+
+		.hero-ornament.top {
+			margin-bottom: 1.5rem;
+		}
+
+		.hero-ornament.bottom {
+			margin-top: 1.5rem;
+		}
+
+		.title-group {
+			gap: 1rem;
 		}
 
 		.title-en {
-			font-size: 2.5rem;
+			font-size: 2.25rem;
 		}
 
 		.title-he {
-			font-size: 2rem;
+			font-size: 1.75rem;
+		}
+
+		.title-divider {
+			width: 80px;
 		}
 
 		.subtitle {
-			font-size: 1.1rem;
+			font-size: 1rem;
+			padding: 0 0.5rem;
 		}
 
 		.poems-section {
-			padding: 3rem 1.5rem;
+			padding: 2.5rem 1rem;
+		}
+
+		.section-header {
+			margin-bottom: 2rem;
 		}
 
 		.section-title {
-			font-size: 2rem;
+			font-size: 1.75rem;
 		}
 
 		.poems-grid {
 			grid-template-columns: 1fr;
-			gap: 2rem;
+			gap: 1.5rem;
 		}
 
 		.poem-card {
-			padding: 2rem 1.5rem;
+			padding: 1.5rem 1.25rem;
+			min-height: 44px;
+		}
+
+		.poem-titles {
+			margin-bottom: 1rem;
+			gap: 0.5rem;
 		}
 
 		.poem-title-en {
-			font-size: 1.3rem;
+			font-size: 1.25rem;
 		}
 
 		.poem-title-he {
-			font-size: 1.4rem;
+			font-size: 1.3rem;
+		}
+
+		.poem-meta {
+			font-size: 0.95rem;
+		}
+
+		.home-footer {
+			padding: 2rem 1rem 3rem;
 		}
 	}
 
 	@media (max-width: 480px) {
+		.hero {
+			min-height: 50vh;
+		}
+
+		.hero-content {
+			padding: 1.25rem 0.75rem;
+		}
+
+		.title-en {
+			font-size: 1.85rem;
+			letter-spacing: 0.02em;
+		}
+
+		.title-he {
+			font-size: 1.5rem;
+		}
+
+		.subtitle {
+			font-size: 0.95rem;
+		}
+
+		.poems-section {
+			padding: 2rem 0.75rem;
+		}
+
+		.section-title {
+			font-size: 1.5rem;
+		}
+
+		.poem-card {
+			padding: 1.25rem 1rem;
+		}
+
+		.poem-title-en {
+			font-size: 1.15rem;
+		}
+
+		.poem-title-he {
+			font-size: 1.2rem;
+		}
+
 		.poem-meta {
 			flex-direction: column;
-			align-items: flex-start;
-			gap: 0.5rem;
+			align-items: center;
+			gap: 0.375rem;
+			text-align: center;
 		}
 
 		.meta-separator {

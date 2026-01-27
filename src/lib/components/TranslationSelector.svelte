@@ -53,13 +53,14 @@
 
     .select-wrapper select {
         font-family: var(--font-serif);
-        padding: 0.5rem 2.5rem 0.5rem 1rem;
+        padding: 0.625rem 2.5rem 0.625rem 1rem;
+        min-height: 44px;
         border: 1px solid var(--divider-primary);
         border-radius: 6px;
         background: white;
         color: var(--text-primary);
         cursor: pointer;
-        font-size: 0.95rem;
+        font-size: 1rem;
         box-shadow: var(--shadow-sm);
         transition: var(--transition-base);
         appearance: none;
@@ -67,6 +68,7 @@
         background-repeat: no-repeat;
         background-position: right 0.75rem center;
         background-size: 1rem;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .select-wrapper select:hover {
@@ -106,6 +108,11 @@
 
         .copyright-info-wrapper {
             display: none;
+        }
+
+        .select-wrapper select {
+            padding: 0.5rem 2rem 0.5rem 0.75rem;
+            font-size: 0.9rem;
         }
     }
 </style>

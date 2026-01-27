@@ -284,3 +284,59 @@ a {
 a:hover {
 	color: var(--brand-secondary);
 }
+
+/* Mobile-first touch improvements */
+@media (max-width: 768px) {
+	header {
+		padding: 2rem 1rem 1.5rem;
+	}
+
+	header h1 {
+		font-size: 2rem;
+	}
+
+	header p {
+		font-size: 0.9rem;
+	}
+
+	main {
+		padding: 1.5rem 1rem 3rem;
+	}
+
+	.controls {
+		gap: 0.75rem;
+	}
+
+	.controls button,
+	.controls select {
+		min-height: 44px;
+		padding: 0.625rem 1rem;
+		font-size: 0.9rem;
+	}
+
+	footer {
+		padding: 1.5rem 1rem 2rem;
+	}
+}
+
+@media (max-width: 480px) {
+	header {
+		padding: 1.5rem 0.75rem 1rem;
+	}
+
+	header h1 {
+		font-size: 1.75rem;
+	}
+
+	main {
+		padding: 1rem 0.75rem 2.5rem;
+	}
+
+	.line.hebrew {
+		font-size: 1.1rem;
+	}
+
+	.line.english {
+		font-size: 1rem;
+	}
+}
