@@ -336,7 +336,6 @@
 		line-height: 1.6;
 		padding: 2rem;
 		background: var(--bg-secondary);
-		border-left: 3px solid var(--accent-gold);
 		border-radius: 4px;
 	}
 
