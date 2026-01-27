@@ -24,6 +24,7 @@
 	let currentTranslationId = $state("default");
 	let showNikkudot = $state(true);
 	let highlightedLineId = $state<string | null>(null);
+	let hoveredLineId = $state<string | null>(null);
 
 	let lineNumberMap = $derived(computeLineNumbers(poem.content));
 	let poemClass = $derived(getPoemClasses(viewMode, layoutMode));
@@ -152,10 +153,16 @@
 												class="line-grid"
 												class:highlighted={highlightedLineId ===
 													line.id}
+												class:hovered={hoveredLineId ===
+													line.id}
 												onclick={() =>
 													toggleLineHighlight(
 														line.id,
 													)}
+												onmouseenter={() =>
+													(hoveredLineId = line.id)}
+												onmouseleave={() =>
+													(hoveredLineId = null)}
 											>
 												<span
 													class="line hebrew"
@@ -178,10 +185,16 @@
 													class="line-grid"
 													class:highlighted={highlightedLineId ===
 														line.id}
+													class:hovered={hoveredLineId ===
+														line.id}
 													onclick={() =>
 														toggleLineHighlight(
 															line.id,
 														)}
+													onmouseenter={() =>
+														(hoveredLineId = line.id)}
+													onmouseleave={() =>
+														(hoveredLineId = null)}
 												>
 													<span
 														class="line english"
@@ -368,7 +381,8 @@
 		border-radius: 6px;
 	}
 
-	.line-grid:hover {
+	.line-grid:hover,
+	.line-grid.hovered {
 		background: var(--highlight);
 		transform: translateY(-1px);
 	}
