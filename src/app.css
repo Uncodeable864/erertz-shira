@@ -58,7 +58,7 @@ body {
 	color: var(--text-primary);
 	font-family: var(--font-serif);
 	font-size: 18px;
-	line-height: 1.7;
+	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	background: var(--bg-primary);
@@ -191,13 +191,13 @@ main {
 	direction: rtl;
 	text-align: right;
 	font-size: 1.25rem;
-	line-height: 1.8;
+	line-height: 1.6;
 	color: var(--text-primary);
 }
 
 .line.english {
 	font-size: 1.15rem;
-	line-height: 1.8;
+	line-height: 1.6;
 	color: var(--text-primary);
 }
 

@@ -87,7 +87,7 @@
 
 	.author-bio {
 		font-size: 1.2rem;
-		line-height: 1.8;
+		line-height: 1.6;
 		color: var(--text-secondary);
 		max-width: 650px;
 		margin: 0 auto;

@@ -331,7 +331,7 @@
 		margin: 0 0 3rem 0;
 		text-align: left;
 		color: var(--text-secondary);
-		line-height: 1.8;
+		line-height: 1.6;
 		padding: 2rem;
 		background: var(--bg-secondary);
 		border-left: 3px solid var(--accent-gold);
@@ -422,7 +422,7 @@
 		font-family: var(--font-hebrew);
 		direction: rtl;
 		font-size: 1.4rem;
-		line-height: 1.8;
+		line-height: 1.6;
 		justify-self: end;
 		text-align: right;
 		color: var(--text-primary);
@@ -432,7 +432,7 @@
 	.line.english {
 		grid-column: 3;
 		font-size: 1.2rem;
-		line-height: 1.8;
+		line-height: 1.6;
 		justify-self: start;
 		color: var(--text-secondary);
 		font-family: var(--font-serif);
