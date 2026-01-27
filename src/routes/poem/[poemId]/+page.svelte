@@ -259,20 +259,36 @@
 	.poem-wrapper {
 		max-width: 1200px;
 		margin: 0 auto 5rem;
-		padding: 2.5rem;
-		background: rgba(255, 255, 255, 0.4);
+		padding: 3rem;
+		background: rgba(253, 252, 250, 0.7);
+		backdrop-filter: blur(8px);
 		box-shadow: var(--shadow-lg);
 		position: relative;
+		border: 1px solid var(--divider-secondary);
+	}
+
+	/* Decorative corner ornaments - Middle Eastern inspired */
+	.poem-wrapper::before,
+	.poem-wrapper::after {
+		content: "";
+		position: absolute;
+		width: 24px;
+		height: 24px;
+		border-style: solid;
+		border-color: var(--accent-gold);
+		opacity: 0.4;
 	}
 
 	.poem-wrapper::before {
-		content: "";
-		position: absolute;
-		top: 10px;
-		left: 10px;
-		right: 10px;
-		bottom: 10px;
-		pointer-events: none;
+		top: 12px;
+		left: 12px;
+		border-width: 2px 0 0 2px;
+	}
+
+	.poem-wrapper::after {
+		bottom: 12px;
+		right: 12px;
+		border-width: 0 2px 2px 0;
 	}
 
 	.poem-meta-bar {
@@ -280,86 +296,92 @@
 		justify-content: space-between;
 		align-items: center;
 		gap: 1.5rem;
-		margin: 0 -2.5rem 3rem;
-		padding: 1rem 2.5rem;
-		border-bottom: 1px solid var(--divider);
+		margin: 0 -3rem 3rem;
+		padding: 1.25rem 3rem;
+		border-bottom: 1px solid var(--divider-primary);
 		position: sticky;
 		top: 0;
 		z-index: 100;
-		background: rgba(250, 249, 246, 0.9);
+		background: rgba(248, 246, 242, 0.95);
 		backdrop-filter: blur(12px);
-		transition: var(--transition);
+		transition: var(--transition-base);
 	}
 
 	.poem-meta-bar.stuck {
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-		border-bottom-color: rgba(44, 82, 130, 0.1);
+		box-shadow: var(--shadow-md);
+		border-bottom-color: var(--divider-primary);
+		background: rgba(248, 246, 242, 0.98);
 	}
 
 	.meta-left {
 		display: flex;
 		align-items: center;
-		gap: 1.25rem;
+		gap: 1.5rem;
 	}
 
 	.meta-sep {
 		width: 1px;
-		height: 24px;
-		background: var(--divider);
-		margin: 0 0.25rem;
+		height: 28px;
+		background: var(--divider-primary);
+		margin: 0 0.5rem;
 	}
 
 	/* Context Info */
 	.context-info {
 		margin: 0 0 3rem 0;
 		text-align: left;
-		color: var(--text);
-		line-height: 1.6;
+		color: var(--text-secondary);
+		line-height: 1.8;
+		padding: 2rem;
+		background: var(--bg-secondary);
+		border-left: 3px solid var(--accent-gold);
+		border-radius: 4px;
 	}
 
 	.poem-desc {
-		font-size: 1rem;
+		font-size: 1.05rem;
 		margin-bottom: 1.5rem;
 	}
 
 	.author-desc {
-		font-size: 1rem;
+		font-size: 1.05rem;
 	}
 
 	/* Poem Section */
 	.poem {
 		position: relative;
 		z-index: 1;
-		transition: var(--transition);
+		transition: var(--transition-base);
 	}
 
 	.line-grid {
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: 1fr 2rem 1fr;
+		grid-template-columns: 1fr 2.5rem 1fr;
 		justify-content: center;
-		column-gap: 1.5rem;
-		row-gap: 0.5rem;
+		column-gap: 2rem;
+		row-gap: 0.75rem;
 		max-width: 1000px;
-		padding: 0.1rem 0.6rem;
-		transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+		padding: 0.5rem 1rem;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		border-radius: 6px;
 	}
 
 	.line-grid:hover {
-		background: rgba(44, 82, 130, 0.04);
+		background: var(--highlight);
 		transform: translateY(-1px);
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
 	}
 
 	.line-grid.highlighted {
-		background: var(--highlight);
-		transform: scale(1.015);
-		box-shadow: 0 0 12px rgba(44, 82, 130, 0.12);
-		color: var(--brand);
+		background: var(--highlight-warm);
+		transform: scale(1.01);
+		box-shadow: var(--shadow-sm);
+		border-left: 3px solid var(--accent-terracotta);
+		padding-left: calc(1rem - 3px);
 	}
 
 	.line-grid.centered-hebrew {
-		grid-template-columns: 2rem 1fr 2rem;
+		grid-template-columns: 2.5rem 1fr 2.5rem;
 	}
 
 	.line-grid.centered-hebrew .line.hebrew {
@@ -374,9 +396,9 @@
 
 	.line {
 		width: fit-content;
-		padding: 0.4rem 0.6rem;
-		border-radius: 6px;
-		transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+		padding: 0.5rem 0.75rem;
+		border-radius: 4px;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		cursor: default;
 		position: relative;
 		align-self: start;
@@ -385,29 +407,35 @@
 	.line-number {
 		grid-column: 2;
 		grid-row: 1;
-		color: var(--divider-2);
-		font-size: 0.75rem;
+		color: var(--text-light);
+		font-size: 0.8rem;
 		align-self: center;
 		justify-self: center;
 		user-select: none;
 		font-variant-numeric: tabular-nums;
+		font-family: var(--font-serif);
+		opacity: 0.5;
 	}
 
 	.line.hebrew {
 		grid-column: 1;
-		font-family: "Frank Ruhl Libre", serif;
+		font-family: var(--font-hebrew);
 		direction: rtl;
-		font-size: 1.35rem;
-		line-height: 1.5;
+		font-size: 1.4rem;
+		line-height: 1.8;
 		justify-self: end;
 		text-align: right;
+		color: var(--text-primary);
+		font-weight: 500;
 	}
 
 	.line.english {
 		grid-column: 3;
 		font-size: 1.2rem;
-		line-height: 1.5;
+		line-height: 1.8;
 		justify-self: start;
+		color: var(--text-secondary);
+		font-family: var(--font-serif);
 	}
 
 	.stanza-group {
@@ -418,16 +446,33 @@
 		grid-column: 1 / -1;
 		display: flex;
 		justify-content: center;
-		padding: 1.5rem 0;
-		color: var(--divider-2);
+		align-items: center;
+		padding: 2rem 0;
+		color: var(--accent-gold);
 		pointer-events: none;
 		text-align: center;
+		gap: 1.5rem;
+	}
+
+	.stanza-sep::before,
+	.stanza-sep::after {
+		content: "";
+		flex: 1;
+		height: 1px;
+		background: linear-gradient(
+			to right,
+			transparent,
+			var(--divider-primary),
+			transparent
+		);
+		max-width: 120px;
 	}
 
 	.sep-ornament {
-		font-size: 0.9rem;
-		opacity: 1;
-		transition: var(--transition);
+		font-size: 1rem;
+		opacity: 0.6;
+		transition: var(--transition-base);
+		color: var(--accent-gold);
 	}
 
 	:global(.mode-interlinear) .intl-seperator {
@@ -435,13 +480,13 @@
 	}
 
 	:global(.mode-interlinear) .line-grid {
-		grid-template-columns: 2rem 1fr;
-		row-gap: -0.1rem;
+		grid-template-columns: 2.5rem 1fr;
+		row-gap: 0.25rem;
 		column-gap: 0;
 	}
 
 	:global(.mode-interlinear) .line-grid.centered-hebrew {
-		grid-template-columns: 2rem 1fr;
+		grid-template-columns: 2.5rem 1fr;
 	}
 
 	:global(.mode-interlinear) .line-number {
@@ -459,7 +504,7 @@
 		grid-row: 1;
 		justify-self: center;
 		text-align: center;
-		padding-bottom: 0;
+		padding-bottom: 0.25rem;
 	}
 
 	:global(.mode-interlinear) .line.english {
@@ -467,8 +512,9 @@
 		grid-row: 2;
 		justify-self: center;
 		text-align: center;
-		opacity: 0.8;
-		padding-top: 0;
+		opacity: 0.85;
+		padding-top: 0.25rem;
+		font-size: 1.1rem;
 	}
 
 	/* Stanza Mode - Group all Hebrew lines, then all English lines */
@@ -478,13 +524,13 @@
 	}
 
 	:global(.mode-stanza) .line-number {
-		display: none; /* Hide line numbers in stanza mode for cleaner look */
+		display: none;
 	}
 
 	:global(.mode-stanza) .stanza-group {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: 1rem;
+		margin-bottom: 1.5rem;
 	}
 
 	:global(.mode-stanza) .line.hebrew,
@@ -498,12 +544,12 @@
 	}
 
 	:global(.mode-stanza) .line.hebrew {
-		font-size: 1.4rem;
+		font-size: 1.5rem;
 	}
 
 	:global(.mode-stanza) .line.english {
-		font-size: 1.15rem;
-		opacity: 0.85;
+		font-size: 1.2rem;
+		opacity: 0.9;
 	}
 
 	:global(.mode-stanza) .intl-seperator {
@@ -512,7 +558,7 @@
 
 	:global(.poem.hide-hebrew) .line-grid,
 	:global(.poem.hide-english) .line-grid {
-		grid-template-columns: 2rem 1fr;
+		grid-template-columns: 2.5rem 1fr;
 		width: fit-content;
 		max-width: 100%;
 		margin: 0 auto;
@@ -537,7 +583,7 @@
 
 	@media (max-width: 768px) {
 		.poem-wrapper {
-			padding: 1.5rem;
+			padding: 2rem 1.5rem;
 			border-radius: 0;
 			border-left: none;
 			border-right: none;
@@ -558,7 +604,7 @@
 		}
 
 		.line-grid {
-			grid-template-columns: 1.5rem 1fr;
+			grid-template-columns: 2rem 1fr;
 			row-gap: 0.5rem;
 		}
 
@@ -577,11 +623,13 @@
 		.line.hebrew {
 			grid-column: 2;
 			grid-row: 1;
+			font-size: 1.3rem;
 		}
 
 		.line.english {
 			grid-column: 2;
 			grid-row: 2;
+			font-size: 1.1rem;
 		}
 	}
 </style>

@@ -33,7 +33,8 @@
 
     .info-sep {
         opacity: 0.5;
-        margin: 0 0.25rem;
+        margin: 0 0.5rem;
+        color: var(--text-light);
     }
 
     .info-sep::before {
@@ -41,17 +42,17 @@
     }
 
     .about-link {
-        color: var(--brand);
+        color: var(--brand-primary);
         text-decoration: none;
-        font-size: 0.75rem;
+        font-size: 0.85rem;
         border-bottom: 1px solid transparent;
-        transition: var(--transition);
+        transition: var(--transition-base);
         font-style: normal;
         vertical-align: middle;
     }
 
     .about-link:hover {
-        border-bottom-color: var(--brand);
-        opacity: 0.8;
+        border-bottom-color: var(--accent-gold);
+        color: var(--brand-secondary);
     }
 </style>

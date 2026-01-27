@@ -1,47 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
 :root {
-	--bg: #FAF9F6;
-	--bg-dark: #F3F1E8;
-	--text: #2D3748;
-	--muted: #718096;
-	--divider: hsl(214, 32%, 85%);
-	--divider-2: hsl(214, 32%, 60%);
-	--brand: #2C5282;
-	--highlight: rgba(44, 82, 130, 0.08);
-	--shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-	--transition: all 0.3s ease-in-out;
+	/* Color Palette - Scholarly with Middle Eastern warmth */
+	--bg-primary: #FDFCFA;
+	--bg-secondary: #F8F6F2;
+	--bg-tertiary: #F0EDE6;
+	--bg-accent: #E8E3D8;
+
+	/* Text Colors */
+	--text-primary: #1A1614;
+	--text-secondary: #4A4542;
+	--text-muted: #6B6662;
+	--text-light: #8B857F;
+
+	/* Brand Colors - Deep Blues with warmth */
+	--brand-primary: #1B4B7F;
+	--brand-secondary: #2D5F9E;
+	--brand-light: #4A7AB8;
+	--brand-accent: #6B95C9;
+
+	/* Accent Colors - Middle Eastern inspired */
+	--accent-terracotta: #C67B5C;
+	--accent-sand: #D4A574;
+	--accent-gold: #B8935F;
+	--accent-sage: #8B9B7E;
+
+	/* Functional Colors */
+	--divider-primary: rgba(27, 75, 127, 0.12);
+	--divider-secondary: rgba(27, 75, 127, 0.08);
+	--highlight: rgba(27, 75, 127, 0.06);
+	--highlight-warm: rgba(198, 123, 92, 0.08);
+
+	/* Shadows - Subtle and refined */
+	--shadow-sm: 0 1px 2px rgba(26, 22, 20, 0.04), 0 1px 4px rgba(26, 22, 20, 0.02);
+	--shadow-md: 0 2px 8px rgba(26, 22, 20, 0.06), 0 1px 4px rgba(26, 22, 20, 0.04);
+	--shadow-lg: 0 8px 16px rgba(26, 22, 20, 0.08), 0 2px 8px rgba(26, 22, 20, 0.04);
+	--shadow-xl: 0 12px 24px rgba(26, 22, 20, 0.1), 0 4px 12px rgba(26, 22, 20, 0.06);
+
+	/* Transitions */
+	--transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-base: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+	/* Typography */
+	--font-serif: 'Cormorant Garamond', 'Georgia', serif;
+	--font-display: 'Spectral', 'Georgia', serif;
+	--font-hebrew: 'Frank Ruhl Libre', serif;
+}
+
+* {
+	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
 	min-height: 100vh;
-	color: var(--text);
-	font-family: 'Crimson Pro', serif;
+	color: var(--text-primary);
+	font-family: var(--font-serif);
+	font-size: 18px;
+	line-height: 1.7;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background: #FAF9F6;
-	background-image:
-		repeating-linear-gradient(0deg, transparent, transparent 4px, rgba(139, 117, 91, 0.02) 4px, rgba(139, 117, 91, 0.02) 4px),
-		repeating-linear-gradient(90deg, transparent, transparent 4px, rgba(139, 117, 91, 0.02) 4px, rgba(139, 117, 91, 0.02) 4px);
+	background: var(--bg-primary);
+	position: relative;
 }
+
+/* Subtle Middle Eastern geometric pattern overlay */
+body::before {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	opacity: 0.03;
+	z-index: 0;
+	background-image:
+		repeating-linear-gradient(45deg, transparent, transparent 20px, var(--brand-primary) 20px, var(--brand-primary) 21px),
+		repeating-linear-gradient(-45deg, transparent, transparent 20px, var(--brand-primary) 20px, var(--brand-primary) 21px);
+}
+
+/* Decorative border pattern - inspired by Islamic geometric art */
+body::after {
+	content: '';
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 4px;
+	background: linear-gradient(90deg,
+			var(--brand-primary) 0%,
+			var(--accent-gold) 25%,
+			var(--brand-secondary) 50%,
+			var(--accent-terracotta) 75%,
+			var(--brand-primary) 100%);
+	z-index: 1000;
+	box-shadow: 0 2px 8px rgba(27, 75, 127, 0.2);
+}
+
 
 header {
 	text-align: center;
-	padding: 2.5rem 1rem 1.5rem;
-	border-bottom: 3px solid var(--brand);
+	padding: 3rem 1.5rem 2rem;
+	border-bottom: 2px solid var(--divider-primary);
+	background: var(--bg-secondary);
+	position: relative;
+	z-index: 1;
 }
 
 header h1 {
-	margin: 0 0 0.5rem;
-	font-size: 2rem;
-	font-weight: 700;
+	margin: 0 0 0.75rem;
+	font-size: 2.5rem;
+	font-weight: 600;
+	font-family: var(--font-display);
+	color: var(--brand-primary);
+	letter-spacing: -0.01em;
 }
 
 header p {
 	margin: 0;
-	color: var(--muted);
-	font-size: 0.95rem;
+	color: var(--text-muted);
+	font-size: 1rem;
+	font-weight: 400;
 }
 
 .controls {
@@ -55,23 +136,35 @@ header p {
 .controls button,
 .controls select {
 	font-family: inherit;
-	font-size: 0.9rem;
-	padding: 0.4rem 0.8rem;
-	border: 1px solid var(--brand);
+	font-size: 0.95rem;
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--brand-primary);
 	background: white;
-	color: var(--brand);
+	color: var(--brand-primary);
 	cursor: pointer;
+	border-radius: 4px;
+	transition: var(--transition-base);
+	font-weight: 500;
+}
+
+.controls button:hover,
+.controls select:hover {
+	background: var(--bg-tertiary);
+	border-color: var(--brand-secondary);
 }
 
 .controls button.active {
-	background: var(--brand);
+	background: var(--brand-primary);
 	color: white;
+	box-shadow: var(--shadow-sm);
 }
 
 main {
 	max-width: 1200px;
 	margin: 0 auto;
-	padding: 2rem 1rem 3rem;
+	padding: 2.5rem 1.5rem 4rem;
+	position: relative;
+	z-index: 1;
 }
 
 .poem {
@@ -82,11 +175,11 @@ main {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	column-gap: 3rem;
-	row-gap: 0.35rem;
+	row-gap: 0.5rem;
 	align-items: start;
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 800px;
+	max-width: 900px;
 }
 
 .line-row {
@@ -94,45 +187,48 @@ main {
 }
 
 .line.hebrew {
-	font-family: 'Frank Ruhl Libre', serif;
+	font-family: var(--font-hebrew);
 	direction: rtl;
 	text-align: right;
-	font-size: 1.15rem;
-	line-height: 1.45;
+	font-size: 1.25rem;
+	line-height: 1.8;
+	color: var(--text-primary);
 }
 
 .line.english {
-	font-size: 1.05rem;
-	line-height: 1.45;
+	font-size: 1.15rem;
+	line-height: 1.8;
+	color: var(--text-primary);
 }
 
 .hebrew {
-	font-family: 'Frank Ruhl Libre', serif;
+	font-family: var(--font-hebrew);
 	direction: rtl;
 	text-align: right;
-	font-size: 1.15rem;
-	line-height: 1.45;
+	font-size: 1.25rem;
+	line-height: 1.8;
 }
 
 .l-hebrew {
-	font-family: 'Frank Ruhl Libre', serif;
+	font-family: var(--font-hebrew);
 	direction: rtl;
 	text-align: right;
 }
 
 .english {
-	font-size: 1.05rem;
-	line-height: 1.45;
+	font-size: 1.15rem;
+	line-height: 1.8;
 }
 
 .stanza {
-	margin-bottom: 2rem;
+	margin-bottom: 2.5rem;
 }
 
 .line {
 	display: block;
-	padding: 0.15rem 0.25rem;
+	padding: 0.25rem 0.5rem;
 	border-radius: 4px;
+	transition: var(--transition-base);
 }
 
 .line.highlight {
@@ -140,11 +236,14 @@ main {
 }
 
 footer {
-	border-top: 1px solid var(--divider);
+	border-top: 1px solid var(--divider-secondary);
 	text-align: center;
-	padding: 1.5rem 1rem 2rem;
-	font-size: 0.85rem;
-	color: var(--muted);
+	padding: 2rem 1rem 2.5rem;
+	font-size: 0.9rem;
+	color: var(--text-muted);
+	background: var(--bg-secondary);
+	position: relative;
+	z-index: 1;
 }
 
 .hide-hebrew .hebrew {
@@ -181,4 +280,23 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	gap: 1.5rem;
+}
+
+/* Decorative ornament utility */
+.ornament {
+	color: var(--accent-gold);
+	opacity: 0.6;
+	font-size: 0.875rem;
+}
+
+/* Link styles */
+a {
+	color: var(--brand-primary);
+	text-decoration: none;
+	transition: var(--transition-fast);
+}
+
+a:hover {
+	color: var(--brand-secondary);
 }

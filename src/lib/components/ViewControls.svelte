@@ -137,69 +137,87 @@
     .view-controls {
         display: flex;
         align-items: center;
-        padding: 0.15rem;
-        background: rgba(255, 255, 255, 0.4);
-        border-radius: 8px;
-        border: 1px solid var(--divider);
+        padding: 0.25rem;
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 6px;
+        border: 1px solid var(--divider-primary);
+        box-shadow: var(--shadow-sm);
+        transition: var(--transition-base);
     }
 
     .view-controls:hover {
-        background: rgba(255, 255, 255, 0.8);
-        border-color: var(--brand);
+        background: rgba(255, 255, 255, 0.9);
+        border-color: var(--brand-secondary);
+        box-shadow: var(--shadow-md);
     }
 
     .view-controls button {
-        height: 32px;
+        height: 36px;
         border: none;
         background: transparent;
-        color: var(--muted);
-        border-radius: 6px;
+        color: var(--text-muted);
+        border-radius: 4px;
         cursor: pointer;
-        font-size: 0.95rem;
+        font-size: 1rem;
         font-weight: 600;
-        transition: var(--transition);
+        transition: var(--transition-base);
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0 0.5rem;
+        padding: 0 0.75rem;
+        font-family: var(--font-serif);
+    }
+
+    .view-controls button:hover {
+        background: var(--bg-tertiary);
+        color: var(--brand-primary);
+        transform: translateY(-1px);
     }
 
     .view-controls button.lang-toggle {
-        min-width: 32px;
+        min-width: 36px;
     }
 
     .view-controls button.lang-toggle.both {
-        min-width: 48px;
-        font-size: 0.85rem;
+        min-width: 52px;
+        font-size: 0.9rem;
         letter-spacing: 0.05em;
     }
 
     .view-controls button.nikkudot-toggle {
-        min-width: 32px;
+        min-width: 36px;
     }
 
     .nikkud-indicator {
-        font-family: "Frank Ruhl Libre", serif;
-        font-size: 1.2rem;
+        font-family: var(--font-hebrew);
+        font-size: 1.3rem;
         line-height: 1;
     }
 
-    .view-controls button:hover {
-        background: rgba(255, 255, 255, 0.8);
-        color: var(--brand);
-        transform: scale(1.05);
-    }
-
     .view-controls button.active {
-        background: var(--brand);
+        background: var(--brand-primary);
         color: white;
         box-shadow: var(--shadow-sm);
+        position: relative;
+    }
+
+    /* Subtle accent indicator for active state */
+    .view-controls button.active::after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60%;
+        height: 2px;
+        background: var(--accent-gold);
+        border-radius: 1px;
     }
 
     .divider {
         width: 1px;
-        height: 20px;
-        background: var(--divider);
-        margin: 0 0.25rem;
+        height: 24px;
+        background: var(--divider-primary);
+        margin: 0 0.5rem;
     }
 </style>
