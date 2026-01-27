@@ -388,7 +388,7 @@
 	}
 
 	.line-grid.highlighted {
-		background: var(--highlight-warm);
+		background: var(--highlight);
 		transform: scale(1.01);
 		box-shadow: var(--shadow-sm);
 		border-left: 3px solid var(--accent-terracotta);
