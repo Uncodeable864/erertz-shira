@@ -54,6 +54,9 @@
 
 html {
 	scroll-behavior: smooth;
+	overflow-x: hidden;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 body {
@@ -290,6 +293,19 @@ a {
 
 a:hover {
 	color: var(--brand-secondary);
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+	outline: 2px solid var(--brand-primary);
+	outline-offset: 2px;
+}
+
+button:focus-visible,
+select:focus-visible,
+a:focus-visible {
+	outline: 2px solid var(--brand-primary);
+	outline-offset: 2px;
 }
 
 /* Mobile-first touch improvements */
