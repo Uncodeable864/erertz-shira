@@ -52,9 +52,14 @@
 	box-sizing: border-box;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	margin: 0;
 	min-height: 100vh;
+	min-height: 100dvh;
 	color: var(--text-primary);
 	font-family: var(--font-serif);
 	font-size: 18px;
@@ -63,6 +68,8 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	background: var(--bg-primary);
 	position: relative;
+	padding-left: env(safe-area-inset-left);
+	padding-right: env(safe-area-inset-right);
 }
 
 /* Decorative border pattern - inspired by Islamic geometric art */
@@ -222,7 +229,7 @@ main {
 footer {
 	border-top: 1px solid var(--divider-secondary);
 	text-align: center;
-	padding: 2rem 1rem 2.5rem;
+	padding: 2rem 1rem calc(2.5rem + env(safe-area-inset-bottom));
 	font-size: 0.9rem;
 	color: var(--text-muted);
 	background: var(--bg-secondary);

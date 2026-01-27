@@ -298,12 +298,14 @@
 		gap: 1.5rem;
 		margin: 0 -3rem 3rem;
 		padding: 1.25rem 3rem;
+		padding-top: calc(1.25rem + env(safe-area-inset-top, 0px));
 		border-bottom: 1px solid var(--divider-primary);
 		position: sticky;
-		top: 0;
+		top: 4px;
 		z-index: 100;
 		background: rgba(248, 246, 242, 0.95);
 		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
 		transition: var(--transition-base);
 	}
 
