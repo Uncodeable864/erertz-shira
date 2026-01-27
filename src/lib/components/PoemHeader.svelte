@@ -7,95 +7,129 @@
 </script>
 
 <div class="header-inner">
-    <h1 class="main-title he-en-group">
-        <span class="he l-hebrew" dir="rtl">{hebrewTitle}</span>
-        <span class="en">{title}</span>
-    </h1>
-    <p class="author-meta">
-        <a href="/author/{author.id}" class="author-link he l-hebrew" dir="rtl"
-            >{author.he}</a
-        >
-        <span class="en-group">
-            <a href="/author/{author.id}" class="author-link en">{author.en}</a>
-        </span>
-    </p>
+    <div class="ornament-top">✦</div>
+
+    <div class="title-section">
+        <h1 class="title-he" dir="rtl">{hebrewTitle}</h1>
+        <div class="title-divider"></div>
+        <h1 class="title-en">{title}</h1>
+    </div>
+
+    <div class="author-section">
+        <div class="author-label">by</div>
+        <div class="author-names">
+            <a href="/author/{author.id}" class="author-link author-en"
+                >{author.en}</a
+            >
+            <span class="author-separator">·</span>
+            <a
+                href="/author/{author.id}"
+                class="author-link author-he"
+                dir="rtl">{author.he}</a
+            >
+        </div>
+    </div>
+
+    <div class="ornament-bottom">✦</div>
 </div>
 
 <style>
-    .main-title {
-        max-width: 1000px;
-        margin: 0 auto 2rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3.5rem;
-        align-items: baseline;
+    .header-inner {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+        text-align: center;
+        position: relative;
     }
 
-    .main-title .en {
-        font-size: 3rem;
-        font-weight: 700;
-        font-family: var(--font-display);
-        color: var(--brand-primary);
-        text-shadow:
-            1px 1px 0px rgba(255, 255, 255, 0.9),
-            2px 2px 6px rgba(27, 75, 127, 0.08);
-        letter-spacing: -0.02em;
-        justify-self: start;
-        text-align: left;
-        line-height: 1.1;
+    .ornament-top,
+    .ornament-bottom {
+        color: var(--accent-gold);
+        font-size: 1.25rem;
+        opacity: 0.5;
+        margin: 1rem 0;
     }
 
-    .main-title .he {
-        font-size: 2.6rem;
-        font-weight: 500;
-        color: var(--brand-primary);
-        text-shadow:
-            1px 1px 0px rgba(255, 255, 255, 0.9),
-            2px 2px 6px rgba(27, 75, 127, 0.08);
-        margin-top: -0.5rem;
-        justify-self: end;
-        text-align: right;
-        line-height: 1.2;
-    }
-
-    .author-meta {
-        margin: 0 auto 3.5rem;
-        font-size: 1.15rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 3.5rem;
-        max-width: 1000px;
-        align-items: center;
-    }
-
-    .author-meta .he {
-        font-style: normal;
-        font-size: 1.35rem;
-        justify-self: end;
-        text-align: right;
-        color: var(--text-secondary);
-        font-weight: 500;
-    }
-
-    .author-meta .en-group {
+    .title-section {
+        margin: 2rem 0 2.5rem;
         display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+    }
+
+    .title-he {
+        font-family: var(--font-hebrew);
+        font-size: clamp(2.25rem, 5vw, 3.25rem);
+        font-weight: 500;
+        color: var(--brand-primary);
+        margin: 0;
+        line-height: 1.2;
+        letter-spacing: 0.01em;
+    }
+
+    .title-divider {
+        width: 100px;
+        height: 2px;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            var(--accent-gold) 20%,
+            var(--accent-gold) 80%,
+            transparent
+        );
+        opacity: 0.6;
+    }
+
+    .title-en {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4.5vw, 2.75rem);
+        font-weight: 400;
+        font-style: italic;
+        color: var(--brand-secondary);
+        margin: 0;
+        line-height: 1.3;
+        letter-spacing: 0.01em;
+    }
+
+    .author-section {
+        display: flex;
+        flex-direction: column;
         align-items: center;
         gap: 0.75rem;
-        justify-self: start;
-        text-align: left;
+        margin: 2rem 0 1rem;
+    }
+
+    .author-label {
+        font-family: var(--font-serif);
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-light);
+        font-weight: 500;
+    }
+
+    .author-names {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .author-link {
+        font-size: 1.25rem;
         text-decoration: none;
         color: var(--text-secondary);
         transition: var(--transition-fast);
         position: relative;
+        padding-bottom: 2px;
     }
 
     .author-link::after {
         content: "";
         position: absolute;
-        bottom: -2px;
+        bottom: 0;
         left: 0;
         width: 0;
         height: 2px;
@@ -111,33 +145,50 @@
         width: 100%;
     }
 
+    .author-en {
+        font-family: var(--font-serif);
+        font-weight: 500;
+    }
+
+    .author-he {
+        font-family: var(--font-hebrew);
+        font-size: 1.35rem;
+        font-weight: 500;
+    }
+
+    .author-separator {
+        color: var(--text-light);
+        opacity: 0.5;
+    }
+
     @media (max-width: 768px) {
-        .main-title {
-            display: flex;
+        .header-inner {
+            padding: 2rem 1.5rem;
+        }
+
+        .title-he {
+            font-size: 2rem;
+        }
+
+        .title-en {
+            font-size: 1.75rem;
+        }
+
+        .author-link {
+            font-size: 1.1rem;
+        }
+
+        .author-he {
+            font-size: 1.2rem;
+        }
+
+        .author-names {
             flex-direction: column;
-            align-items: center;
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
 
-        .main-title .en {
-            font-size: 2.5rem;
-        }
-
-        .main-title .he {
-            font-size: 2.2rem;
-        }
-
-        .author-meta {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .main-title .he,
-        .main-title .en {
-            justify-self: auto;
-            text-align: center;
+        .author-separator {
+            display: none;
         }
     }
 </style>
